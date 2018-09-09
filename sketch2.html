@@ -1,0 +1,428 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #000;
+				margin: 0;
+				overflow: hidden;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/three.min.js"></script>
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/Detector.js"></script>
+
+		<script>
+    /*
+                   /\
+                  / /    ._.       __
+                 / / ____| | ____ |  | __
+                / / /    \ |/ ___\|  |/ /
+        /\ /\  / /  |   |  \\  \___|    <
+        \/ \/ / /   \ __|  /_\___  >__|_ \
+             / /         \/ |    \/     \/
+             \/       _ |\|_|/|_
+                      \  . .  /
+                      /   ~   \
+                       \/ \/ \/  copy<it>right 2013
+					   				../n!ck
+    */
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+			//var geometry2, material2, mesh2;
+			var cnt = 0;
+		//	var cnt2 = 0;
+			var meshes = [];
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 40, W/H, 1, 10000 );
+				camera.position.z = 700;
+				camera.position.y = Math.sin( Date.now() * 0.0002 ) * 350;
+
+				scene = new THREE.Scene();
+
+				for ( var i = 0; i < 2500; i ++ ) {
+					geometry = new THREE.SphereGeometry(30, 10, 10);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 0.75});
+					mesh = new THREE.Mesh(geometry, material);
+					scene.add(mesh);
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.1;
+
+					mesh.position.x = Math.random() * 1500 - 750;
+					mesh.position.y = Math.random() * 1500 - 750;
+					mesh.position.z = Math.random() * 1500 - 750;
+
+					mesh.rotation.x = Math.random() * 5 * Math.PI;
+					mesh.rotation.y = Math.random() * 5 * Math.PI;
+
+					scene.add(mesh);
+					scene.fog = new THREE.Fog( 0x00cd60, 1, 700 );
+
+
+					meshes[ cnt ] = mesh;
+					cnt += 1;
+				}
+				for ( var i = 0; i < 90; i ++ ) {
+
+					// var points = [
+					// 	new THREE.Vector3( 10,10,10 ),
+					// 	new THREE.Vector3( -26.308831991627812, -36.702050315216184, -65.70204044692218 ),
+					// 	new THREE.Vector3( 30.030598351731896, 53.670027665793896, -48.4273636713624 ),
+					// 	new THREE.Vector3( -91.64749449118972, 86.79489707574248, -39.410504000261426 ),
+					// 	new THREE.Vector3( -9.040775801986456, 24.351109005510807, -25.116276880726218 ),
+					// 	new THREE.Vector3( 45.43574578128755, 91.02062359452248, -22.751434659585357 ),
+					// 	new THREE.Vector3( 95.66223728470504, 46.15802983753383, 15.478686103597283 ),
+					// 	new THREE.Vector3( 40.25877616368234, 69.51988283544779, -17.296824790537357 )
+					// ];
+
+					// geometry = new THREE.ConvexGeometry( points );
+					// material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color:0xEEEEEE, wireframe:true, wireframeLinewidth: 2});
+					// mesh = new THREE.Mesh(geometry, material);
+					// scene.add(mesh);
+
+					geometry = new THREE.SphereGeometry(30, 20, 20);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 2});
+					mesh = new THREE.Mesh(geometry, material);
+					scene.add(mesh);
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.6;
+
+					mesh.position.x = Math.random() * 1600 - 650;
+					mesh.position.y = Math.random() * 1600 - 650;
+					mesh.position.z = Math.random() * 1600 - 650;
+
+					mesh.rotation.x = Math.random() * 10 * Math.PI;
+					mesh.rotation.y = Math.random() * 10 * Math.PI;
+
+					scene.add(mesh);
+					scene.fog = new THREE.Fog( 0x000000, 10, 900 );
+
+
+
+					meshes[ cnt ] = mesh;
+					cnt += 1;
+				}
+
+
+			}
+
+
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+
+
+				for ( i = 0; i < cnt; i ++ ) {
+						mesh = meshes[ i ];
+						mesh.rotation.z = Date.now() * 0.0005;
+				}
+
+				camera.position.y = Math.sin( Date.now() * 0.0002 ) * 500;
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+	</body>
+</html>
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #000;
+				margin: 0;
+				overflow: hidden;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/three.min.js"></script>
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/Detector.js"></script>
+
+		<script>
+    /*
+                   /\
+                  / /    ._.       __
+                 / / ____| | ____ |  | __
+                / / /    \ |/ ___\|  |/ /
+        /\ /\  / /  |   |  \\  \___|    <
+        \/ \/ / /   \ __|  /_\___  >__|_ \
+             / /         \/ |    \/     \/
+             \/       _ |\|_|/|_
+                      \  . .  /
+                      /   ~   \
+                       \/ \/ \/  copy<it>right 2013
+					   				../n!ck
+    */
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+			var cnt = 0;
+			var meshes = [];
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 40, W/H, 1, 10000 );
+				camera.position.z = 700;
+				camera.position.y = Math.sin( Date.now() * 0.0002 ) * 350;
+
+				scene = new THREE.Scene();
+
+				for ( var i = 0; i < 900; i ++ ) {
+					geometry = new THREE.SphereGeometry(30, 20, 20);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 1.15});
+					mesh = new THREE.Mesh(geometry, material);
+					scene.add(mesh);
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
+
+					mesh.position.x = Math.random() * 1500 - 750;
+					mesh.position.y = Math.random() * 1500 - 750;
+					mesh.position.z = Math.random() * 1500 - 750;
+
+					mesh.rotation.x = Math.random() * 3 * Math.PI;
+					mesh.rotation.y = Math.random() * 3 * Math.PI;
+
+					scene.add(mesh);
+					scene.fog = new THREE.Fog( 0x00cd60, 1, 200 );
+
+
+					meshes[ cnt ] = mesh;
+					cnt += 1;
+				}
+				for ( var i = 0; i < 400; i ++ ) {
+
+					// var points = [
+					// 	new THREE.Vector3( 10,10,10 ),
+					// 	new THREE.Vector3( -26.308831991627812, -36.702050315216184, -65.70204044692218 ),
+					// 	new THREE.Vector3( 30.030598351731896, 53.670027665793896, -48.4273636713624 ),
+					// 	new THREE.Vector3( -91.64749449118972, 86.79489707574248, -39.410504000261426 ),
+					// 	new THREE.Vector3( -9.040775801986456, 24.351109005510807, -25.116276880726218 ),
+					// 	new THREE.Vector3( 45.43574578128755, 91.02062359452248, -22.751434659585357 ),
+					// 	new THREE.Vector3( 95.66223728470504, 46.15802983753383, 15.478686103597283 ),
+					// 	new THREE.Vector3( 40.25877616368234, 69.51988283544779, -17.296824790537357 )
+					// ];
+
+					// geometry = new THREE.ConvexGeometry( points );
+					// material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color:0xEEEEEE, wireframe:true, wireframeLinewidth: 2});
+					// mesh = new THREE.Mesh(geometry, material);
+					// scene.add(mesh);
+
+					geometry = new THREE.SphereGeometry(30, 20, 20);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 1.15});
+					mesh = new THREE.Mesh(geometry, material);
+					scene.add(mesh);
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.2;
+
+					mesh.position.x = Math.random() * 1500 - 750;
+					mesh.position.y = Math.random() * 1500 - 750;
+					mesh.position.z = Math.random() * 1500 - 750;
+
+					mesh.rotation.x = Math.random() * 2 * Math.PI;
+					mesh.rotation.y = Math.random() * 2 * Math.PI;
+
+					scene.add(mesh);
+					scene.fog = new THREE.Fog( 0x000000, 10, 1044.87 );
+
+
+
+					meshes[ cnt ] = mesh;
+					cnt += 1;
+				}
+
+
+			}
+
+
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+
+
+				for ( i = 0; i < cnt; i ++ ) {
+						mesh = meshes[ i ];
+						mesh.rotation.z = Date.now() * 0.0005;
+				}
+
+				camera.position.y = Math.sin( Date.now() * 0.0002 ) * 500;
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+	</body>
+</html>
+>>>>>>> 43be83439456af66cc37cbf858b4a12803a74df2
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #000;
+				margin: 0;
+				overflow: hidden;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/three.min.js"></script>
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/Detector.js"></script>
+
+		<script>
+    /*
+                   /\
+                  / /    ._.       __
+                 / / ____| | ____ |  | __
+                / / /    \ |/ ___\|  |/ /
+        /\ /\  / /  |   |  \\  \___|    <
+        \/ \/ / /   \ __|  /_\___  >__|_ \
+             / /         \/ |    \/     \/
+             \/       _ |\|_|/|_
+                      \  . .  /
+                      /   ~   \
+                       \/ \/ \/  copy<it>right 2013
+					   				../n!ck
+    */
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+			var cnt = 0;
+			var meshes = [];
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 40, W/H, 1, 10000 );
+				camera.position.z = 700;
+				camera.position.y = Math.sin( Date.now() * 0.0002 ) * 350;
+
+				scene = new THREE.Scene();
+
+				for ( var i = 0; i < 900; i ++ ) {
+					geometry = new THREE.SphereGeometry(30, 20, 20);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 1.15});
+					mesh = new THREE.Mesh(geometry, material);
+					scene.add(mesh);
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
+
+					mesh.position.x = Math.random() * 1500 - 750;
+					mesh.position.y = Math.random() * 1500 - 750;
+					mesh.position.z = Math.random() * 1500 - 750;
+
+					mesh.rotation.x = Math.random() * 3 * Math.PI;
+					mesh.rotation.y = Math.random() * 3 * Math.PI;
+
+					scene.add(mesh);
+					scene.fog = new THREE.Fog( 0x00cd60, 1, 200 );
+
+
+					meshes[ cnt ] = mesh;
+					cnt += 1;
+				}
+				for ( var i = 0; i < 400; i ++ ) {
+
+					// var points = [
+					// 	new THREE.Vector3( 10,10,10 ),
+					// 	new THREE.Vector3( -26.308831991627812, -36.702050315216184, -65.70204044692218 ),
+					// 	new THREE.Vector3( 30.030598351731896, 53.670027665793896, -48.4273636713624 ),
+					// 	new THREE.Vector3( -91.64749449118972, 86.79489707574248, -39.410504000261426 ),
+					// 	new THREE.Vector3( -9.040775801986456, 24.351109005510807, -25.116276880726218 ),
+					// 	new THREE.Vector3( 45.43574578128755, 91.02062359452248, -22.751434659585357 ),
+					// 	new THREE.Vector3( 95.66223728470504, 46.15802983753383, 15.478686103597283 ),
+					// 	new THREE.Vector3( 40.25877616368234, 69.51988283544779, -17.296824790537357 )
+					// ];
+
+					// geometry = new THREE.ConvexGeometry( points );
+					// material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, color:0xEEEEEE, wireframe:true, wireframeLinewidth: 2});
+					// mesh = new THREE.Mesh(geometry, material);
+					// scene.add(mesh);
+
+					geometry = new THREE.SphereGeometry(30, 20, 20);
+					material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 1.15});
+					mesh = new THREE.Mesh(geometry, material);
+					scene.add(mesh);
+					mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.2;
+
+					mesh.position.x = Math.random() * 1500 - 750;
+					mesh.position.y = Math.random() * 1500 - 750;
+					mesh.position.z = Math.random() * 1500 - 750;
+
+					mesh.rotation.x = Math.random() * 2 * Math.PI;
+					mesh.rotation.y = Math.random() * 2 * Math.PI;
+
+					scene.add(mesh);
+					scene.fog = new THREE.Fog( 0x000000, 10, 1044.87 );
+
+
+
+					meshes[ cnt ] = mesh;
+					cnt += 1;
+				}
+
+
+			}
+
+
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+
+
+				for ( i = 0; i < cnt; i ++ ) {
+						mesh = meshes[ i ];
+						mesh.rotation.z = Date.now() * 0.0005;
+				}
+
+				camera.position.y = Math.sin( Date.now() * 0.0002 ) * 500;
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+	</body>
+</html>
+>>>>>>> 43be83439456af66cc37cbf858b4a12803a74df2
