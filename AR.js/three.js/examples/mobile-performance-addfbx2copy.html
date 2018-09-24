@@ -174,7 +174,7 @@
         geometry = new THREE.CubeGeometry(1,1,1);
         material = new THREE.MeshNormalMaterial({
             transparent : true,
-            opacity: 0.7,
+            opacity: 0.5,
             side: THREE.DoubleSide
         });
         mesh = new THREE.Mesh( geometry, material );
@@ -199,7 +199,7 @@
         geometry = new THREE.IcosahedronGeometry(1, 0);
         material = new THREE.MeshNormalMaterial({
           transparent : true,
-          opacity: 0.3,
+          opacity: 0.7,
           side: THREE.DoubleSide
         });
         var mesh = new THREE.Mesh(geometry, material);
@@ -207,11 +207,20 @@
         mesh.position.y	= .6
         arWorldRoot.add( mesh );
         onRenderFcts.push(function(){
-            mesh.rotation.y += 0.3
-            mesh.rotation.x += 0.3
+            mesh.rotation.x = mesh.roataion.y += 0.3
         })
 
+        // for ( var i = 0; i < 1600; i ++ ) {
 
+//
+
+          // geometry = new THREE.SphereGeometry(2, 1, 1);
+          // material = new THREE.MeshNormalMaterial();
+          // mesh = new THREE.Mesh(geometry, material);
+          // mesh.position.x = mesh.position.y =   mesh.position.z = Math.random()
+          // arWorldRoot.add( mesh );
+
+        // }
 
         ///////////////////////////////////////////////////////////
 //        // add a taurus with rotation animation
