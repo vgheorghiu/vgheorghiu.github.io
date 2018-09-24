@@ -178,7 +178,8 @@
             side: THREE.DoubleSide
         });
         mesh = new THREE.Mesh( geometry, material );
-        mesh.position.y	= geometry.parameters.height/2
+        mesh.position.y	= 3
+        // mesh.position.y	= geometry.parameters.height/2
         arWorldRoot.add(mesh);
         // end cube code
         ///////////////////////////////////////////////////////////
@@ -190,7 +191,7 @@
         geometry = new THREE.IcosahedronGeometry(.3, 0); //edit scale (in this code a scale of 1 = size of target image)
         var material	= new THREE.MeshNormalMaterial();
         var mesh	= new THREE.Mesh( geometry, material );
-        mesh.position.y	= 0.5 //position y equals how far away from target
+        mesh.position.y	= 1 //position y equals how far away from target
         arWorldRoot.add( mesh ); //instead of adding mesh to the scene right away we add only when the target is detected
         //end icosphere code
         ///////////////////////////////////////////////////////////
@@ -198,12 +199,12 @@
         geometry = new THREE.IcosahedronGeometry(1, 0);
         material = new THREE.MeshNormalMaterial({
           transparent : true,
-          opacity: 0.5,
+          opacity: 0.3,
           side: THREE.DoubleSide
         });
         var mesh = new THREE.Mesh(geometry, material);
       //  scene.add(mesh);
-        mesh.position.y	= 0.5
+        mesh.position.y	= 1
         arWorldRoot.add( mesh );
         onRenderFcts.push(function(){
             mesh.rotation.x += 0.3
