@@ -196,7 +196,7 @@
         ///////////////////////////////////////////////////////////
 
         geometry = new THREE.IcosahedronGeometry(.5, 0);
-        material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+        material = new THREE.MeshNormalMaterial();
         var mesh = new THREE.Mesh(geometry, material);
       //  scene.add(mesh);
         mesh.position.y	= 0.5
@@ -210,7 +210,7 @@
 
 
           geometry = new THREE.SphereGeometry(10, 10, 10);
-          material = new THREE.MeshBasicMaterial({shading: THREE.FlatShading, wireframe: true, wireframeLinewidth: 2});
+          material = new THREE.MeshNormalMaterial();
           mesh = new THREE.Mesh(geometry, material);
           scene.add(mesh);
           mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.6;
