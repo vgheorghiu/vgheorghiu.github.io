@@ -178,7 +178,7 @@
             side: THREE.DoubleSide
         });
         mesh = new THREE.Mesh( geometry, material );
-        mesh.position.y	= 3
+        mesh.position.y	= .2
         // mesh.position.y	= geometry.parameters.height/2
         arWorldRoot.add(mesh);
         // end cube code
@@ -204,7 +204,7 @@
         });
         var mesh = new THREE.Mesh(geometry, material);
       //  scene.add(mesh);
-        mesh.position.y	= 1
+        mesh.position.y	= .6
         arWorldRoot.add( mesh );
         onRenderFcts.push(function(){
             mesh.rotation.x = mesh.roataion.y += 0.3
