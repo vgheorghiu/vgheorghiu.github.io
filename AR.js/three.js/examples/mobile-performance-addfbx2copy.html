@@ -196,13 +196,17 @@
         ///////////////////////////////////////////////////////////
 
         geometry = new THREE.IcosahedronGeometry(.5, 0);
-        material = new THREE.MeshNormalMaterial();
+        material = new THREE.MeshNormalMaterial({
+          transparent : true,
+          opacity: 0.5,
+          side: THREE.DoubleSide
+        });
         var mesh = new THREE.Mesh(geometry, material);
       //  scene.add(mesh);
         mesh.position.y	= 0.5
         arWorldRoot.add( mesh );
         onRenderFcts.push(function(){
-            mesh.rotation.x += 0.1
+            mesh.rotation.x += 0.3
         })
 
         // for ( var i = 0; i < 1600; i ++ ) {
