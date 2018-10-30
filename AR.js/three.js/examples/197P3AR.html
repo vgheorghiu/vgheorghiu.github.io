@@ -269,7 +269,7 @@
          };
 
          var textureLoader = new THREE.TextureLoader( manager );
-         var texture = textureLoader.load( '../../data/data/UV_Grid_Sm.jpg' );
+         var texture = textureLoader.load( '../../data/data/braincoral/braincoral.jpg' );
 
         // obj model
          var onProgress = function ( xhr ) {
@@ -283,7 +283,7 @@
          };
 
          var loader = new THREE.OBJLoader( manager );
-         loader.load( '../../data/data/male02/male02.obj', function ( object ) {
+         loader.load( '../../data/data/braincoral/braincoral.obj', function ( object ) {
 
              object.traverse( function ( child ) {
 
