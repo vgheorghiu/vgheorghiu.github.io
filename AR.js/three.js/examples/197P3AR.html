@@ -302,7 +302,7 @@
              object.rotation.x = Math.PI;
              arWorldRoot.add( object );
 
-         },
+         }, onProgress, onError );
             var textureLoader2 = new THREE.TextureLoader( manager );
         var texture2 = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
 
