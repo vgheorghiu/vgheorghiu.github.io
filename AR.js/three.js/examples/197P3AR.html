@@ -120,7 +120,7 @@
         var arToolkitContext = new THREEx.ArToolkitContext({
             cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
             detectionMode: 'mono',
-            maxDetectionRate: 30,
+            maxDetectionRate: 90,
             canvasWidth: 80*3,
             canvasHeight: 60*3,
         })
@@ -354,31 +354,31 @@
         })
 
         // run the rendering loop
-        var lastTimeMsec= null
-        requestAnimationFrame(function animate(nowMsec){
-            // keep looping
-            requestAnimationFrame( animate );
-            // measure time
-            lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
-            var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
-            lastTimeMsec	= nowMsec
-            // call each update function
-            onRenderFcts.forEach(function(onRenderFct){
-                onRenderFct(deltaMsec/1000, nowMsec/1000)
-            })
-        })
+        // var lastTimeMsec= null
+        // requestAnimationFrame(function animate(nowMsec){
+        //     // keep looping
+        //     requestAnimationFrame( animate );
+        //     // measure time
+        //     lastTimeMsec	= lastTimeMsec || nowMsec-1000/60
+        //     var deltaMsec	= Math.min(200, nowMsec - lastTimeMsec)
+        //     lastTimeMsec	= nowMsec
+        //     // call each update function
+        //     onRenderFcts.forEach(function(onRenderFct){
+        //         onRenderFct(deltaMsec/1000, nowMsec/1000)
+        //     })
+        // })
 
-    // animate();
-    //
-    //     function animate() {
-		// 		requestAnimationFrame( animate );
-		// 		if ( mixers.length > 0 ) {
-		// 			for ( var i = 0; i < mixers.length; i ++ ) {
-		// 				mixers[ i ].update( clock.getDelta() );
-		// 			}
-		// 		}
-		// 		renderer.render( scene, camera );
-		// 		stats.update();
-		// 	}
+    animate();
+
+        function animate() {
+				requestAnimationFrame( animate );
+				if ( mixers.length > 0 ) {
+					for ( var i = 0; i < mixers.length; i ++ ) {
+						mixers[ i ].update( clock.getDelta() );
+					}
+				}
+				renderer.render( scene, camera );
+				stats.update();
+			}
 
 </script></body>
