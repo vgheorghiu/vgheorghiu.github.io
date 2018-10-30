@@ -315,8 +315,8 @@
                  if ( child instanceof THREE.Mesh ) {
 
                      child.material.map = texture2;
-                      object.position.y = - 10;
-                      object.position.x = - 4;
+                      object.position.y =  10;
+                      object.position.x =  4;
                  }
 
              } );
@@ -368,17 +368,17 @@
             })
         })
 
-    animate();
-
-        function animate() {
-				requestAnimationFrame( animate );
-				if ( mixers.length > 0 ) {
-					for ( var i = 0; i < mixers.length; i ++ ) {
-						mixers[ i ].update( clock.getDelta() );
-					}
-				}
-				renderer.render( scene, camera );
-				stats.update();
-			}
+    // animate();
+    //
+    //     function animate() {
+		// 		requestAnimationFrame( animate );
+		// 		if ( mixers.length > 0 ) {
+		// 			for ( var i = 0; i < mixers.length; i ++ ) {
+		// 				mixers[ i ].update( clock.getDelta() );
+		// 			}
+		// 		}
+		// 		renderer.render( scene, camera );
+		// 		stats.update();
+		// 	}
 
 </script></body>
