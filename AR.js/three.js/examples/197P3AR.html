@@ -120,7 +120,7 @@
         var arToolkitContext = new THREEx.ArToolkitContext({
             cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
             detectionMode: 'mono',
-            maxDetectionRate: 90,
+            maxDetectionRate: 30,
             canvasWidth: 80*3,
             canvasHeight: 60*3,
         })
@@ -291,6 +291,8 @@
                  if ( child instanceof THREE.Mesh ) {
 
                      child.material.map = texture;
+                     object.position.y =  10;
+                     object.position.x =  1;
 
                  }
 
