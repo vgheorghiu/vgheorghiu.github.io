@@ -292,7 +292,7 @@
                      child.material.map = texture;
 
                  }
-
+                 object.rotation.x = Math.PI;
              } );
         //
  				// 	object.position.y = - 95;
@@ -321,10 +321,7 @@
             renderer.render( scene, camera );
             stats2.update();
 
-            if ( object.isMesh === true) {
 
-               object,rotation.x = 180;
-            }
         })
 
         // run the rendering loop
