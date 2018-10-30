@@ -292,12 +292,13 @@
                      child.material.map = texture;
 
                  }
-                 object.rotation.x = Math.PI;
+
              } );
         //
  				// 	object.position.y = - 95;
  				// 	scene.add( object );
              object.scale.set(.02, .02, .02);
+             object.rotation.x = Math.PI;
              arWorldRoot.add( object );
 
          }, onProgress, onError );
