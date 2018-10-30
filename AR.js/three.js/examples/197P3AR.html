@@ -308,7 +308,7 @@
 
 
             var textureLoader = new THREE.TextureLoader( manager );
-        var texture = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
+        var texture2 = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
 
         var onProgress = function ( xhr ) {
             if ( xhr.lengthComputable ) {
@@ -327,7 +327,7 @@
 
                  if ( child instanceof THREE.Mesh ) {
 
-                     child.material.map = texture;
+                     child.material.map = texture2;
                   //   child.position.y =  10;
                     //  object.position.x =  4;
                  }
