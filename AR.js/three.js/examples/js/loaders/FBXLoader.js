@@ -1102,7 +1102,7 @@
 
 					if ( ! displayedWeightsWarning ) {
 
-						console.warn( 'THREE.FBXLoader: Vertex has more than 4 skinning weights assigned to vertex. Deleting additional weights.' );
+						console.warn( 'THREE.FBXLoader: Vertex has more than 8 skinning weights assigned to vertex. Deleting additional weights.' );
 						displayedWeightsWarning = true;
 
 					}
