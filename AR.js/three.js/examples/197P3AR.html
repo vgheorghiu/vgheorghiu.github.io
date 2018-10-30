@@ -269,7 +269,7 @@
          };
 
          var textureLoader = new THREE.TextureLoader( manager );
-         var texture = textureLoader.load( '../../data/data/braincoral/braincoral.jpg' );
+         var texture = textureLoader.load( '../../data/data/can/can_CM.jpg' );
 
 
         // obj model
@@ -284,7 +284,7 @@
          };
 
          var loader = new THREE.OBJLoader( manager );
-         loader.load( '../../data/data/braincoral/braincoral.obj', function ( object ) {
+         loader.load( '../../data/data/can/can.obj', function ( object ) {
 
              object.traverse( function ( child ) {
 
@@ -306,32 +306,32 @@
              arWorldRoot.add( object );
 
          }, onProgress, onError );
-            var textureLoader2 = new THREE.TextureLoader( manager );
-        var texture2 = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
-
-         var loader2 = new THREE.OBJLoader( manager );
-         loader2.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
-
-             object.traverse( function ( child ) {
-
-                 if ( child instanceof THREE.Mesh ) {
-
-                     child.material.map = texture2;
-                  //   child.position.y =  10;
-                    //  object.position.x =  4;
-                 }
-
-             } );
+        //     var textureLoader = new THREE.TextureLoader( manager );
+        // var texture = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
         //
-
-         // 	scene.add( object );
-             object.scale.set(.02, .02, .02);
-             object.rotation.x = Math.PI;
-
-
-             arWorldRoot.add( object );
-
-         }, onProgress, onError );
+        //  var loader = new THREE.OBJLoader( manager );
+        //  loader2.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
+        //
+        //      object.traverse( function ( child ) {
+        //
+        //          if ( child instanceof THREE.Mesh ) {
+        //
+        //              child.material.map = texture;
+        //           //   child.position.y =  10;
+        //             //  object.position.x =  4;
+        //          }
+        //
+        //      } );
+        // //
+        //
+        //  // 	scene.add( object );
+        //      object.scale.set(.02, .02, .02);
+        //      object.rotation.x = Math.PI;
+        //
+        //
+        //      arWorldRoot.add( object );
+        //
+        //  }, onProgress, onError );
 
          //end obj code
         ///////////////////////////////////////////////////////////
