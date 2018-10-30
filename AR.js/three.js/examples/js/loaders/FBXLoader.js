@@ -1098,7 +1098,7 @@
 
 				}
 
-				if ( weights.length > 4 ) {
+				if ( weights.length > 8 ) {
 
 					if ( ! displayedWeightsWarning ) {
 
