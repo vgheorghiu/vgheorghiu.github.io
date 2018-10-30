@@ -21,13 +21,14 @@
 
     <!-- imports libraries to import fbx animations -->
     <script src="../build/three.js"></script>
+    <script src="js/loaders/MTLLoader.js"></script>
 
-    <script src="js/loaders/OBJLoader.js"></script>
 
     <script src="js/libs/inflate.min.js"></script>
     <script src="js/loaders/FBXLoader.js"></script>
 
     <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/loaders/OBJLoader.js"></script>
 
     <script src="js/Detector.js"></script>
     <!--ALREADY IMPORTED-- <script src="js/libs/stats.min.js"></script> -->
@@ -260,7 +261,6 @@
         ///////////////////////////////////////////////////////////
          //add obj model (static)
          // obj texture
-
          var manager = new THREE.LoadingManager();
          manager.onProgress = function ( item, loaded, total ) {
 
@@ -268,8 +268,10 @@
 
          };
 
-         var textureLoader = new THREE.TextureLoader( manager );
-         var texture = textureLoader.load( '../../data/data/gsoftcoral/gsoftcoral.jpg' );
+
+         var gsc = function () {
+         var MTLLoader = new THREE.MaterialLoader( manager );
+         var mtl = MTLLoader.load( '../../data/data/gsoftcoral/gsoftcoral.mtl' );
 
 
         // obj model
@@ -290,7 +292,7 @@
 
                  if ( child instanceof THREE.Mesh ) {
 
-                     child.material.map = texture;
+                     child.material.map = mtl;
                   //   child.position.y =  50;
                     // object.position.x =  1;
                  }
@@ -303,7 +305,10 @@
              arWorldRoot.add( object );
 
          }, onProgress, onError );
+       };
 
+
+        var coralv = function () {
 
 
 
@@ -341,7 +346,7 @@
             arWorldRoot.add( object );
 
          }, onProgress, onError );
-
+       };
          //end obj code
         ///////////////////////////////////////////////////////////
 
