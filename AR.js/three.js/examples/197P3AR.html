@@ -269,7 +269,7 @@
          };
 
          var textureLoader = new THREE.TextureLoader( manager );
-         var texture = textureLoader.load( '../../data/data/can/can_CM.jpg' );
+         var texture = textureLoader.load( '../../data/data/gsoftcoral/gsoftcoral.jpg' );
 
 
         // obj model
@@ -284,7 +284,7 @@
          };
 
          var loader = new THREE.OBJLoader( manager );
-         loader.load( '../../data/data/can/can.obj', function ( object ) {
+         loader.load( '../../data/data/gsoftcoral/gsoftcoral.obj', function ( object ) {
 
              object.traverse( function ( child ) {
 
@@ -309,6 +309,16 @@
 
             var textureLoader = new THREE.TextureLoader( manager );
         var texture = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
+
+        var onProgress = function ( xhr ) {
+            if ( xhr.lengthComputable ) {
+                var percentComplete = xhr.loaded / xhr.total * 100;
+                console.log( Math.round(percentComplete, 2) + '% downloaded' );
+            }
+        };
+
+        var onError = function ( xhr ) {
+        };
 
          var loader = new THREE.OBJLoader( manager );
          loader.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
