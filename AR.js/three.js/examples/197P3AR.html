@@ -315,13 +315,13 @@
                  if ( child instanceof THREE.Mesh ) {
 
                      child.material.map = texture2;
-
+                      object.position.y = - 10;
+                      object.position.x = - 4;
                  }
 
              } );
         //
-             object.position.y = - 10;
-             object.position.x = - 4;
+
          // 	scene.add( object );
              object.scale.set(.02, .02, .02);
              object.rotation.x = Math.PI;
