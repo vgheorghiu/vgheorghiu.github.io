@@ -293,12 +293,9 @@
                      child.material.map = texture;
                   //   child.position.y =  50;
                     // object.position.x =  1;
-
                  }
 
              } );
-
-
  				// 	scene.add( object );
              object.scale.set(.06, .06, .06);
              object.rotation.x = Math.PI;
@@ -306,11 +303,15 @@
              arWorldRoot.add( object );
 
          }, onProgress, onError );
+
+
+
+
             var textureLoader = new THREE.TextureLoader( manager );
         var texture = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
 
          var loader = new THREE.OBJLoader( manager );
-         loader2.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
+         loader.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
 
              object.traverse( function ( child ) {
 
