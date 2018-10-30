@@ -270,6 +270,7 @@
 
          var textureLoader = new THREE.TextureLoader( manager );
          var texture = textureLoader.load( '../../data/data/braincoral/braincoral.jpg' );
+          var texture2 = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
 
         // obj model
          var onProgress = function ( xhr ) {
@@ -299,6 +300,27 @@
  				// 	scene.add( object );
              object.scale.set(.02, .02, .02);
              object.rotation.x = Math.PI;
+             arWorldRoot.add( object );
+
+         }, onProgress, onError );
+         var loader2 = new THREE.OBJLoader( manager );
+         loader2.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
+
+             object.traverse( function ( child ) {
+
+                 if ( child instanceof THREE.Mesh ) {
+
+                     child.material.map = texture2;
+
+                 }
+
+             } );
+        //
+         // 	object.position.y = - 95;
+         // 	scene.add( object );
+             object.scale.set(.02, .02, .02);
+             object.rotation.x = Math.PI;
+             object.position.x = 400;
              arWorldRoot.add( object );
 
          }, onProgress, onError );
