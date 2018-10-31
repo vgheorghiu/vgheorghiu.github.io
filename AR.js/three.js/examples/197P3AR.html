@@ -21,7 +21,7 @@
 
     <!-- imports libraries to import fbx animations -->
     <script src="../build/three.js"></script>
-    <script src="js/loaders/MTLLoader.js"></script>
+   <!--script src="js/loaders/MTLLoader.js"></script -->
 
 
     <script src="js/libs/inflate.min.js"></script>
@@ -270,8 +270,8 @@
 
 
          var gsc = function () {
-         var MTLLoader = new THREE.MaterialLoader( manager );
-         var mtl = MTLLoader.load( '../../data/data/gsoftcoral/gsoftcoral.mtl' );
+         var textureLoader = new THREE.MaterialLoader( manager );
+         var texture = textureLoader.load( '../../data/data/gsoftcoral/gsoftcoral.mtl' );
 
 
         // obj model
@@ -292,7 +292,7 @@
 
                  if ( child instanceof THREE.Mesh ) {
 
-                     child.material.map = mtl;
+                     child.material.map = texture;
                   //   child.position.y =  50;
                     // object.position.x =  1;
                  }
@@ -312,8 +312,8 @@
 
 
 
-            var textureLoader2 = new THREE.TextureLoader( manager );
-        var texture2 = textureLoader2.load( '../../data/data/coralv1/coralv1.jpg' );
+            var textureLoader = new THREE.TextureLoader( manager );
+        var texture = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
 
         var onProgress = function ( xhr ) {
             if ( xhr.lengthComputable ) {
@@ -325,14 +325,14 @@
         var onError = function ( xhr ) {
         };
 
-         var loader2 = new THREE.OBJLoader( manager );
-         loader2.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
+         var loader = new THREE.OBJLoader( manager );
+         loader.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
 
              object.traverse( function ( child ) {
 
                  if ( child instanceof THREE.Mesh ) {
 
-                     child.material.map = texture2;
+                     child.material.map = texture;
                   //   child.position.y =  10;
                     //  object.position.x =  4;
                  }
