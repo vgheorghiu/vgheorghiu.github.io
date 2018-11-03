@@ -81,7 +81,7 @@
 
 					//object.position.y = - 95;S
 					scene.add( object );
-					object.translateOnAxis(axis: X, distance: -10);
+
 				}
 
 				var manager = new THREE.LoadingManager( loadModel );
@@ -119,7 +119,7 @@
 
 					object = obj;
           object.scale.set(5, 5, 5);
-
+					object.translateOnAxis(axis: X, distance: -10);
 				}, onProgress, onError );
 
 		//	};
