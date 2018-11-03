@@ -145,10 +145,20 @@
 				var loader2 = new THREE.OBJLoader( manager );
 
 				loader2.load( '../../data/data/braincoral/braincoral.obj', function ( obj ) {
+					object.traverse( function ( child ) {
+
+							if ( child instanceof THREE.Mesh ) {
+
+									child.material.map = texture2;
+							 //   child.position.y =  50;
+								 // object.position.x =  1;
+							}
+
+					} );
 
 					object = obj;
 					object.position = (100, - 15, 0);
-					object.scale.set(5, 5, 5);
+					object.scale.set(1, 1, 1);
 
 				}, onProgress, onError );
 
