@@ -124,6 +124,34 @@
 
 				}, onProgress, onError );
 
+
+				var texture2 = textureLoader.load( '../../data/data/braincoral/braincoral.jpg' );
+
+				// model
+
+				function onProgress( xhr ) {
+
+					if ( xhr.lengthComputable ) {
+
+						var percentComplete = xhr.loaded / xhr.total * 100;
+						console.log( 'model ' + Math.round( percentComplete, 2 ) + '% downloaded' );
+
+					}
+
+				}
+
+				function onError( xhr ) {}
+
+				var loader2 = new THREE.OBJLoader( manager );
+
+				loader2.load( '../../data/data/braincoral/braincoral.obj', function ( obj ) {
+
+					object = obj;
+					object.position = (100, - 15, 0);
+					object.scale.set(5, 5, 5);
+
+				}, onProgress, onError );
+
 		//	};
 
 				//
