@@ -64,15 +64,15 @@ def initSceneProperties(scn):
         name = "Amplitude", 
         description = "Enter a float",
         default = 0.05,
-        min = -60,
-        max = 60)
+        min = -100,
+        max = 100)
         
     bpy.types.Scene.MySpeedFloat = FloatProperty(
         name = "Frequency", 
         description = "Enter a float",
-        default = 0,
-        min = -200,
-        max = 200)
+        default = 0.85,
+        min = -100,
+        max = 100)
         
     bpy.types.Scene.MyEnum = EnumProperty(
         items = [('Xaxis', 'X_axis', 'Xaxis'), #you can name these strings whatever you prefer
