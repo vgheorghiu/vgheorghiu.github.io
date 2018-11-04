@@ -34,7 +34,7 @@
 		<script src="js/loaders/OBJLoader.js"></script>
 		<script src="js/loaders/MTLLoader.js"></script>
     <script src="js/loaders/DDSLoader.js"></script>
-		<script src="js/loaders/TGALoader.js"></script>
+		<!--script src="js/loaders/TGALoader.js"></script-->
 
 		<script>
 
@@ -118,15 +118,15 @@
 			 };
 			 var onError = function () { };
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-			// new THREE.MTLLoader()
-			 new THREE.TGALoader()
-					 .setPath( '../../data/data/plastic_bottles/' )
-					 .load( 'T_BottlesPlastic_D.tga', function ( materials ) {
+			 new THREE.MTLLoader()
+			// new THREE.TGALoader()
+					 .setPath( '../../data/data/coralv1/' )
+					 .load( 'coralv1.mtl', function ( materials ) {
 							 materials.preload();
 							 new THREE.OBJLoader()
 									 .setMaterials( materials )
-									 .setPath( '../../data/data/plastic bottles Obj/' )
-									 .load( 'SM_BottlePlasticC_01.obj', function ( object ) {
+									 .setPath( '../../data/data/coralv1/' )
+									 .load( 'coralv1.obj', function ( object ) {
 											 //object.scale.set(.4, .4, .4);
 											 object.position = (20, 95, -40);
 											 object.scale.set(1, 1, 1);
