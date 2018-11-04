@@ -117,21 +117,21 @@
 			 };
 			 var onError = function () { };
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-			 new THREE.MTLLoader()
-					 .setPath( '../../data/data/can/' )
-					 .load( 'Can.mtl', function ( materials ) {
-							 materials.preload();
-							 new THREE.OBJLoader()
-									 .setMaterials( materials )
-									 .setPath( '../../data/data/can/' )
-									 .load( 'can.obj', function ( object ) {
-											 //object.scale.set(.4, .4, .4);
-											 object.position = (20, - 95, -40);
-											 object.scale.set(5, 5, 5);
-											 scene.add( object );
-											// arWorldRoot.add( object );
-									 }, onProgress, onError );
-					 } );
+			 // new THREE.MTLLoader()
+				// 	 .setPath( '../../data/data/can/' )
+				// 	 .load( 'Can.mtl', function ( materials ) {
+				// 			 materials.preload();
+				// 			 new THREE.OBJLoader()
+				// 					 .setMaterials( materials )
+				// 					 .setPath( '../../data/data/can/' )
+				// 					 .load( 'can.obj', function ( object ) {
+				// 							 //object.scale.set(.4, .4, .4);
+				// 							 object.position = (20, - 95, -40);
+				// 							 object.scale.set(5, 5, 5);
+				// 							 scene.add( object );
+				// 							// arWorldRoot.add( object );
+				// 					 }, onProgress, onError );
+				// 	 } );
 					 new THREE.MTLLoader()
 							.setPath( '../../data/data/braincoral/' )
 							.load( 'braincoral.mtl', function ( materials ) {
