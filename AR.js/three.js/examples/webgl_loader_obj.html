@@ -117,7 +117,7 @@
 			 };
 			 var onError = function () { };
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-			 new THREE.MTLLoader()
+			 var load1 = new THREE.MTLLoader()
 					 .setPath( '../../data/data/can/' )
 					 .load( 'Can.mtl', function ( materials ) {
 							 materials.preload();
@@ -133,7 +133,7 @@
 									 }, onProgress, onError );
 					 } );
 					 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-					 new THREE.MTLLoader()
+					var load2 = new THREE.MTLLoader()
 							.setPath( '../../data/data/braincoral/' )
 							.load( 'braincoral.mtl', function ( materials ) {
 									materials.preload();
