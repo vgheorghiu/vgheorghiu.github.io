@@ -118,8 +118,8 @@
 			 var onError = function () { };
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 			 var load1 = new THREE.MTLLoader()
-					 .setPath( '../../data/data/can/' )
-					 .load( 'Can.mtl', function ( materials ) {
+					 .setPath( '../../data/data/coralv1/' )
+					 .load( 'coralv1.mtl', function ( materials ) {
 							 materials.preload();
 							 new THREE.OBJLoader()
 									 .setMaterials( materials )
