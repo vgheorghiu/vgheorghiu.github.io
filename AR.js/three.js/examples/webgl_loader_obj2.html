@@ -99,8 +99,8 @@
 				this.controls = null;
 				this.flatShading = false;
 				this.doubleSide = false;
-				this.cube = null;
-				this.pivot = null;
+				//this.cube = null;
+			//	this.pivot = null;
 			};
 			WWOBJLoader2Example.prototype = {
 				constructor: WWOBJLoader2Example,
@@ -135,7 +135,7 @@
 					// this.scene.add( this.pivot );
 				},
 				useParseSync: function () {
-					var modelName = 'female02';
+					var modelName = 'can';
 					this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
 					var scope = this;
 					var objLoader = new THREE.OBJLoader2();
@@ -145,10 +145,10 @@
 						var fileLoader = new THREE.FileLoader();
 						fileLoader.setPath( '' );
 						fileLoader.setResponseType( 'arraybuffer' );
-						fileLoader.load( 'models/obj/female02/female02.obj',
+						fileLoader.load( '.../.../data/data/can/can.obj',
 							function ( content ) {
 								var local = new THREE.Object3D();
-								local.name = 'Pivot_female02';
+								local.name = 'can';
 								local.position.set( 75, 0, 0 );
 								scope.pivot.add( local );
 								local.add( objLoader.parse( content ) );
@@ -159,122 +159,122 @@
 					var onError = function ( event ) {
 						console.error( 'Error occurred: ' + event );
 					};
-					objLoader.loadMtl( 'models/obj/female02/female02.mtl', null, onLoadMtl, null, onError );
+					objLoader.loadMtl( '.../.../data/data/can/can.mtl', null, onLoadMtl, null, onError );
 				},
-				useParseAsync: function () {
-					var modelName = 'female02_vertex' ;
-					this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
-					var callbackOnLoad = function ( event ) {
-						var local = new THREE.Object3D();
-						local.name = 'Pivot_female02_vertex';
-						local.position.set( -75, 0, 0 );
-						scope.pivot.add( local );
-						local.add( event.detail.loaderRootNode );
-						scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
-					};
-					var scope = this;
-					var objLoader = new THREE.OBJLoader2();
-					objLoader.setModelName( modelName );
-					var fileLoader = new THREE.FileLoader();
-					fileLoader.setPath( '' );
-					fileLoader.setResponseType( 'arraybuffer' );
-					var filename = 'models/obj/female02/female02_vertex_colors.obj';
-					fileLoader.load( filename,
-						function ( content ) {
-							objLoader.parseAsync( content, callbackOnLoad );
-							scope._reportProgress( { detail: { text: 'File loading complete: ' + filename } } );
-						}
-					);
-				},
-				useLoadSync: function () {
-					var modelName = 'male02';
-					this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
-					var scope = this;
-					var objLoader = new THREE.OBJLoader2();
-					var callbackOnLoad = function ( event ) {
-						var local = new THREE.Object3D();
-						local.name = 'Pivot_male02';
-						local.position.set( 0, 0, -75 );
-						scope.pivot.add( local );
-						local.add( event.detail.loaderRootNode );
-						scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
-					};
-					var onLoadMtl = function ( materials ) {
-						objLoader.setModelName( modelName );
-						objLoader.setMaterials( materials );
-						objLoader.setUseIndices( true );
-						objLoader.load( 'models/obj/male02/male02.obj', callbackOnLoad, null, null, null, false );
-					};
-					objLoader.loadMtl( 'models/obj/male02/male02.mtl', null, onLoadMtl );
-				},
-				useLoadAsync: function () {
-					var modelName = 'WaltHead';
-					this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
-					var scope = this;
-					var objLoader = new THREE.OBJLoader2();
-					var callbackOnLoad = function ( event ) {
-						objLoader.workerSupport.setTerminateRequested( true );
-						var local = new THREE.Object3D();
-						local.name = 'Pivot_WaltHead';
-						local.position.set( -125, 50, 0 );
-						var scale = 0.5;
-						local.scale.set( scale, scale, scale );
-						scope.pivot.add( local );
-						local.add( event.detail.loaderRootNode );
-						scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
-					};
+				// useParseAsync: function () {
+				// 	var modelName = 'female02_vertex' ;
+				// 	this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
+				// 	var callbackOnLoad = function ( event ) {
+				// 		var local = new THREE.Object3D();
+				// 		local.name = 'Pivot_female02_vertex';
+				// 		local.position.set( -75, 0, 0 );
+				// 		scope.pivot.add( local );
+				// 		local.add( event.detail.loaderRootNode );
+				// 		scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
+				// 	};
+				// 	var scope = this;
+				// 	var objLoader = new THREE.OBJLoader2();
+				// 	objLoader.setModelName( modelName );
+				// 	var fileLoader = new THREE.FileLoader();
+				// 	fileLoader.setPath( '' );
+				// 	fileLoader.setResponseType( 'arraybuffer' );
+				// 	var filename = 'models/obj/female02/female02_vertex_colors.obj';
+				// 	fileLoader.load( filename,
+				// 		function ( content ) {
+				// 			objLoader.parseAsync( content, callbackOnLoad );
+				// 			scope._reportProgress( { detail: { text: 'File loading complete: ' + filename } } );
+				// 		}
+				// 	);
+				// },
+				// useLoadSync: function () {
+				// 	var modelName = 'male02';
+				// 	this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
+				// 	var scope = this;
+				// 	var objLoader = new THREE.OBJLoader2();
+				// 	var callbackOnLoad = function ( event ) {
+				// 		var local = new THREE.Object3D();
+				// 		local.name = 'Pivot_male02';
+				// 		local.position.set( 0, 0, -75 );
+				// 		scope.pivot.add( local );
+				// 		local.add( event.detail.loaderRootNode );
+				// 		scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
+				// 	};
+				// 	var onLoadMtl = function ( materials ) {
+				// 		objLoader.setModelName( modelName );
+				// 		objLoader.setMaterials( materials );
+				// 		objLoader.setUseIndices( true );
+				// 		objLoader.load( 'models/obj/male02/male02.obj', callbackOnLoad, null, null, null, false );
+				// 	};
+				// 	objLoader.loadMtl( 'models/obj/male02/male02.mtl', null, onLoadMtl );
+				// },
+				// useLoadAsync: function () {
+				// 	var modelName = 'WaltHead';
+				// 	this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
+				// 	var scope = this;
+				// 	var objLoader = new THREE.OBJLoader2();
+				// 	var callbackOnLoad = function ( event ) {
+				// 		objLoader.workerSupport.setTerminateRequested( true );
+				// 		var local = new THREE.Object3D();
+				// 		local.name = 'Pivot_WaltHead';
+				// 		local.position.set( -125, 50, 0 );
+				// 		var scale = 0.5;
+				// 		local.scale.set( scale, scale, scale );
+				// 		scope.pivot.add( local );
+				// 		local.add( event.detail.loaderRootNode );
+				// 		scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
+				// 	};
 					var onLoadMtl = function ( materials ) {
 						objLoader.setModelName( modelName );
 						objLoader.setMaterials( materials );
 						objLoader.terminateWorkerOnLoad = false;
-						objLoader.load( 'models/obj/walt/WaltHead.obj', callbackOnLoad, null, null, null, true );
+						objLoader.load( '.../.../data/data/can/can.obj', callbackOnLoad, null, null, null, true );
 					};
-					objLoader.loadMtl( 'models/obj/walt/WaltHead.mtl', null, onLoadMtl );
+					objLoader.loadMtl( '.../.../data/data/can/can.mtl', null, onLoadMtl );
 				},
 				useRunSync: function () {
 					var scope = this;
 					var callbackOnLoad = function ( event ) {
 						scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
 					};
-					var prepData = new THREE.LoaderSupport.PrepData( 'cerberus' );
-					var local = new THREE.Object3D();
-					local.position.set( 0, 0, 100 );
-					local.scale.set( 50.0, 50.0, 50.0 );
-					this.pivot.add( local );
-					prepData.streamMeshesTo = local;
-					prepData.addResource( new THREE.LoaderSupport.ResourceDescriptor( 'models/obj/cerberus/Cerberus.obj', 'OBJ' ) );
-					var callbacks = prepData.getCallbacks();
-					callbacks.setCallbackOnProgress( this._reportProgress );
-					callbacks.setCallbackOnLoad( callbackOnLoad );
-					var objLoader = new THREE.OBJLoader2();
-					objLoader.run( prepData );
-				},
-				useRunAsyncMeshAlter: function () {
-					var scope = this;
-					var callbackOnLoad = function ( event ) {
-						scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
-					};
-					var prepData = new THREE.LoaderSupport.PrepData( 'vive-controller' );
-					var local = new THREE.Object3D();
-					local.position.set( 125, 50, 0 );
-					local.name = 'Pivot_vive-controller';
-					this.pivot.add( local );
-					prepData.streamMeshesTo = local;
-					prepData.addResource( new THREE.LoaderSupport.ResourceDescriptor( 'models/obj/vive-controller/vr_controller_vive_1_5.obj', 'OBJ' ) );
-					prepData.useAsync = true;
-					var callbacks = prepData.getCallbacks();
-					var callbackMeshAlter = function ( event ) {
-						var override = new THREE.LoaderSupport.LoadedMeshUserOverride( false, true );
-						var mesh = new THREE.Mesh( event.detail.bufferGeometry, event.detail.material );
-						var scale = 200.0;
-						mesh.scale.set( scale, scale, scale );
-						mesh.name = event.detail.meshName;
-						var helper = new THREE.VertexNormalsHelper( mesh, 2, 0x00ff00, 1 );
-						helper.name = 'VertexNormalsHelper';
-						override.addMesh( mesh );
-						override.addMesh( helper );
-						return override;
-					};
+				// 	var prepData = new THREE.LoaderSupport.PrepData( 'cerberus' );
+				// 	var local = new THREE.Object3D();
+				// 	local.position.set( 0, 0, 100 );
+				// 	local.scale.set( 50.0, 50.0, 50.0 );
+				// 	//this.pivot.add( local );
+				// 	prepData.streamMeshesTo = local;
+				// 	prepData.addResource( new THREE.LoaderSupport.ResourceDescriptor( 'models/obj/cerberus/Cerberus.obj', 'OBJ' ) );
+				// 	var callbacks = prepData.getCallbacks();
+				// 	callbacks.setCallbackOnProgress( this._reportProgress );
+				// 	callbacks.setCallbackOnLoad( callbackOnLoad );
+				// 	var objLoader = new THREE.OBJLoader2();
+				// 	objLoader.run( prepData );
+				// },
+				// useRunAsyncMeshAlter: function () {
+				// 	var scope = this;
+				// 	var callbackOnLoad = function ( event ) {
+				// 		scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
+				// 	};
+				// 	var prepData = new THREE.LoaderSupport.PrepData( 'vive-controller' );
+				// 	var local = new THREE.Object3D();
+				// 	local.position.set( 125, 50, 0 );
+				// 	local.name = 'Pivot_vive-controller';
+				// 	this.pivot.add( local );
+				// 	prepData.streamMeshesTo = local;
+				// 	prepData.addResource( new THREE.LoaderSupport.ResourceDescriptor( 'models/obj/vive-controller/vr_controller_vive_1_5.obj', 'OBJ' ) );
+				// 	prepData.useAsync = true;
+				// 	var callbacks = prepData.getCallbacks();
+				// 	var callbackMeshAlter = function ( event ) {
+				// 		var override = new THREE.LoaderSupport.LoadedMeshUserOverride( false, true );
+				// 		var mesh = new THREE.Mesh( event.detail.bufferGeometry, event.detail.material );
+				// 		var scale = 200.0;
+				// 		mesh.scale.set( scale, scale, scale );
+				// 		mesh.name = event.detail.meshName;
+				// 		var helper = new THREE.VertexNormalsHelper( mesh, 2, 0x00ff00, 1 );
+				// 		helper.name = 'VertexNormalsHelper';
+				// 		override.addMesh( mesh );
+				// 		override.addMesh( helper );
+				// 		return override;
+				// 	};
 					callbacks.setCallbackOnMeshAlter( callbackMeshAlter );
 					callbacks.setCallbackOnProgress( this._reportProgress );
 					callbacks.setCallbackOnLoad( callbackOnLoad );
