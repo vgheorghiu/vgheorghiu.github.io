@@ -117,7 +117,7 @@
 			 };
 			 var onError = function () { };
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-			 var load1 = new THREE.MTLLoader()
+			 new THREE.MTLLoader()
 					 .setPath( '../../data/data/coralv1/' )
 					 .load( 'coralv1.mtl', function ( materials ) {
 							 materials.preload();
@@ -132,22 +132,22 @@
 											// arWorldRoot.add( object );
 									 }, onProgress, onError );
 					 } );
-					 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-					var load2 = new THREE.MTLLoader()
-							.setPath( '../../data/data/braincoral/' )
-							.load( 'braincoral.mtl', function ( materials ) {
-									materials.preload();
-									new THREE.OBJLoader()
-											.setMaterials( materials )
-											.setPath( '../../data/data/braincoral/' )
-											.load( 'braincoral.obj', function ( object ) {
-													//object.scale.set(.4, .4, .4);
-													object.position = (210, - 100, 0);
-													object.scale.set(1, 1, 1);
-													scene.add( object );
-												 // arWorldRoot.add( object );
-											}, onProgress, onError );
-							} );
+					//  THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+					// var load2 = new THREE.MTLLoader()
+					// 		.setPath( '../../data/data/braincoral/' )
+					// 		.load( 'braincoral.mtl', function ( materials ) {
+					// 				materials.preload();
+					// 				new THREE.OBJLoader()
+					// 						.setMaterials( materials )
+					// 						.setPath( '../../data/data/braincoral/' )
+					// 						.load( 'braincoral.obj', function ( object ) {
+					// 								//object.scale.set(.4, .4, .4);
+					// 								object.position = (210, - 100, 0);
+					// 								object.scale.set(1, 1, 1);
+					// 								scene.add( object );
+					// 							 // arWorldRoot.add( object );
+					// 						}, onProgress, onError );
+					// 		} );
 
 
 
