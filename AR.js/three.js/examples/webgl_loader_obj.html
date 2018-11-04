@@ -119,7 +119,7 @@
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 			 new THREE.MTLLoader()
 					 .setPath( '../../data/data/can/' )
-					 .load( 'can.mtl', function ( materials ) {
+					 .load( 'Can.mtl', function ( materials ) {
 							 materials.preload();
 							 new THREE.OBJLoader()
 									 .setMaterials( materials )
