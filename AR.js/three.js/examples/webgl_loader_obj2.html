@@ -223,19 +223,19 @@
 				// 		local.add( event.detail.loaderRootNode );
 				// 		scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
 				// 	};
-					var onLoadMtl = function ( materials ) {
-						objLoader.setModelName( modelName );
-						objLoader.setMaterials( materials );
-						objLoader.terminateWorkerOnLoad = false;
-						objLoader.load( '.../.../data/data/can/can.obj', callbackOnLoad, null, null, null, true );
-					};
-					objLoader.loadMtl( '.../.../data/data/can/can.mtl', null, onLoadMtl );
-				},
-				useRunSync: function () {
-					var scope = this;
-					var callbackOnLoad = function ( event ) {
-						scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
-					};
+				// 	var onLoadMtl = function ( materials ) {
+				// 		objLoader.setModelName( modelName );
+				// 		objLoader.setMaterials( materials );
+				// 		objLoader.terminateWorkerOnLoad = false;
+				// 		objLoader.load( '.../.../data/data/can/can.obj', callbackOnLoad, null, null, null, true );
+				// 	};
+				// 	objLoader.loadMtl( '.../.../data/data/can/can.mtl', null, onLoadMtl );
+				// },
+				// useRunSync: function () {
+				// 	var scope = this;
+				// 	var callbackOnLoad = function ( event ) {
+				// 		scope._reportProgress( { detail: { text: 'Loading complete: ' + event.detail.modelName } } );
+				// 	};
 				// 	var prepData = new THREE.LoaderSupport.PrepData( 'cerberus' );
 				// 	var local = new THREE.Object3D();
 				// 	local.position.set( 0, 0, 100 );
