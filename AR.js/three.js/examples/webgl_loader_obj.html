@@ -134,12 +134,12 @@
 				// 	 } );
 					 new THREE.MTLLoader()
 							.setPath( '../../data/data/braincoral/' )
-							.load( 'braincoral.mtl', function ( materials ) {
+							.Load( 'braincoral.mtl', function ( materials ) {
 									materials.preload();
 									new THREE.OBJLoader()
 											.setMaterials( materials )
 											.setPath( '../../data/data/braincoral/' )
-											.load( 'braincoral.obj', function ( object ) {
+											.Load( 'braincoral.obj', function ( object ) {
 													//object.scale.set(.4, .4, .4);
 													object.position = (50, - 155, 0);
 													object.scale.set(5, 5, 5);
