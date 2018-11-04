@@ -32,6 +32,8 @@
 
 		<script src="../build/three.js"></script>
 		<script src="js/loaders/OBJLoader.js"></script>
+		<script src="js/loaders/MTLLoader.js"></script>
+    <script src="js/loaders/DDSLoader.js"></script>
 
 		<script>
 
@@ -94,75 +96,103 @@
 				};
 
 				// texture
-				function New () {
-				var textureLoader = new THREE.TextureLoader( manager );
 
-				var texture = textureLoader.load( '../../data/data/can/can_CM.jpg' );
-
-				// model
-
-				function onProgress( xhr ) {
-
-					if ( xhr.lengthComputable ) {
-
-						var percentComplete = xhr.loaded / xhr.total * 100;
-						console.log( 'model ' + Math.round( percentComplete, 2 ) + '% downloaded' );
-
-					}
-
-				}
-
-				function onError( xhr ) {}
-
-				var loader = new THREE.OBJLoader( manager );
-
-				loader.load( '../../data/data/can/can.obj', function ( obj ) {
-
-					object = obj;
-					object.position = (20, - 95, -40);
-          object.scale.set(5, 5, 5);
-
-				}, onProgress, onError );
-			};
-
-
-				var textureLoader2 = new THREE.TextureLoader( manager );
-				var texture2 = textureLoader2.load( '../../data/data/braincoral/braincoral.jpg' );
+				// var textureLoader = new THREE.TextureLoader( manager );
+				// var texture = textureLoader.load( '../../data/data/can/can_CM.jpg' );
+			 //
+			 //
+		  	// var textureLoader2 = new THREE.TextureLoader( manager );
+			 // var texture2 = textureLoader2.load( '../../data/data/braincoral/braincoral.jpg' );
 
 				// model
+				//add obj model2 (static)
+				// mtl texture
 
-				function onProgress( xhr ) {
+			 // model
+			 var onProgress = function ( xhr ) {
+					 if ( xhr.lengthComputable ) {
+							 var percentComplete = xhr.loaded / xhr.total * 100;
+							 console.log( Math.round( percentComplete, 2 ) + '% downloaded' );
+					 }
+			 };
+			 var onError = function () { };
+			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+			 new THREE.MTLLoader()
+					 .setPath( '../../data/data/' )
+					 .load( 'obj-material-test.mtl', function ( materials ) {
+							 materials.preload();
+							 new THREE.OBJLoader()
+									 .setMaterials( materials )
+									 .setPath( '../../data/data/' )
+									 .load( 'obj-material-test.obj', function ( object ) {
+											 //object.scale.set(.4, .4, .4);
+											 arWorldRoot.add( object );
+									 }, onProgress, onError );
+					 } );
 
-					if ( xhr.lengthComputable ) {
 
-						var percentComplete = xhr.loaded / xhr.total * 100;
-						console.log( 'model ' + Math.round( percentComplete, 2 ) + '% downloaded' );
 
-					}
-
-				}
-
-				function onError( xhr ) {}
-
-				var loader2 = new THREE.OBJLoader( manager );
-
-				loader2.load( '../../data/data/braincoral/braincoral.obj', function ( obj ) {
-					object.traverse( function ( child ) {
-
-							if ( child instanceof THREE.Mesh ) {
-
-									child.material.map = texture2;
-							 //   child.position.y =  50;
-								 // object.position.x =  1;
-							}
-
-					} );
-
-					object = obj;
-					object.position = (100, - 15, 0);
-					object.scale.set(1, 1, 1);
-
-				}, onProgress, onError );
+				//end obj2 code
+			// 	function onProgress( xhr ) {
+			//
+			// 		if ( xhr.lengthComputable ) {
+			//
+			// 			var percentComplete = xhr.loaded / xhr.total * 100;
+			// 			console.log( 'model ' + Math.round( percentComplete, 2 ) + '% downloaded' );
+			//
+			// 		}
+			//
+			// 	}
+			//
+			// 	function onError( xhr ) {}
+			//
+			// 	var loader = new THREE.OBJLoader( manager );
+			//
+			// 	loader.load( '../../data/data/can/can.obj', function ( obj ) {
+			//
+			// 		object = obj;
+			// 		object.position = (20, - 95, -40);
+      //     object.scale.set(5, 5, 5);
+			//
+			// 	}, onProgress, onError );
+			// };
+			//
+			//
+			//
+			// 	// model
+			//
+			// 	function onProgress( xhr ) {
+			//
+			// 		if ( xhr.lengthComputable ) {
+			//
+			// 			var percentComplete = xhr.loaded / xhr.total * 100;
+			// 			console.log( 'model ' + Math.round( percentComplete, 2 ) + '% downloaded' );
+			//
+			// 		}
+			//
+			// 	}
+			//
+			// 	function onError( xhr ) {}
+			//
+			// 	var loader2 = new THREE.OBJLoader( manager );
+			//
+			// 	loader2.load( '../../data/data/braincoral/braincoral.obj', function ( obj ) {
+			// 		object.traverse( function ( child ) {
+			//
+			// 				if ( child instanceof THREE.Mesh ) {
+			//
+			// 						child.material.map = texture2;
+			// 				 //   child.position.y =  50;
+			// 					 // object.position.x =  1;
+			// 				}
+			//
+			// 		} );
+			//
+			// 		object = obj;
+			// 		object.position = (100, - 15, 0);
+			// 		object.scale.set(1, 1, 1);
+			//
+			// 	}, onProgress, onError );
 
 		//	};
 
