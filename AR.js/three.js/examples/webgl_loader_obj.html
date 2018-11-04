@@ -118,12 +118,12 @@
 			 var onError = function () { };
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 			 new THREE.MTLLoader()
-					 .setPath( '../../data/data/can' )
+					 .setPath( '../../data/data/can/' )
 					 .load( 'can.mtl', function ( materials ) {
 							 materials.preload();
 							 new THREE.OBJLoader()
 									 .setMaterials( materials )
-									 .setPath( '../../data/data/can' )
+									 .setPath( '../../data/data/can/' )
 									 .load( 'can.obj', function ( object ) {
 											 //object.scale.set(.4, .4, .4);
 											 arWorldRoot.add( object );
