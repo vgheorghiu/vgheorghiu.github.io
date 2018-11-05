@@ -127,10 +127,10 @@
 									 .setMaterials( materials )
 									 .setPath( '../../data/data/' )
 									 .load( 'objcomposite.obj', function ( object ) {
-											 //object.scale.set(.4, .4, .4);
-										//	 object.position = (20, 95, -40);
+
 											 object.scale.set(10, 10, 10);
-											  object.rotation.y = (3 * Math.PI/2);
+											 object.rotation.y = (3 * Math.PI/2);
+											 object.translate = (100, -100, 0);
 											 scene.add( object );
 											// arWorldRoot.add( object );
 									 }, onProgress, onError );
