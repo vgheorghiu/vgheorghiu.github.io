@@ -127,7 +127,7 @@
 									 .setMaterials( materials )
 									 .setPath( '../../data/data/' )
 									 .load( 'objcomposite.obj', function ( object ) {
-										   object.translate = (200, 2250, 0);
+
 											 object.scale.set(10, 10, 10);
 											 object.rotation.y = (3 * Math.PI/2);
 
@@ -257,6 +257,7 @@
 			function animate() {
 
 				requestAnimationFrame( animate );
+				object.translate = (200, 250, 0);
 				render();
 
 			}
