@@ -83,7 +83,7 @@
 					} );
 
 
-
+					object.translate = (200, 850, 0);
 					scene.add( object );
 
 				}
@@ -120,16 +120,17 @@
 			 THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 			 new THREE.MTLLoader()
 			// new THREE.TGALoader()
-					 .setPath( '../../data/data/coralv1/' )
-					 .load( 'coralv1.mtl', function ( materials ) {
+					 .setPath( '../../data/data/' )
+					 .load( 'objcomposite.mtl', function ( materials ) {
 							 materials.preload();
 							 new THREE.OBJLoader()
 									 .setMaterials( materials )
-									 .setPath( '../../data/data/coralv1/' )
-									 .load( 'coralv1.obj', function ( object ) {
-											 //object.scale.set(.4, .4, .4);
-											 object.position = (20, 95, -40);
-											 object.scale.set(1, 1, 1);
+									 .setPath( '../../data/data/' )
+									 .load( 'objcomposite.obj', function ( object ) {
+
+											 object.scale.set(10, 10, 10);
+											 object.rotation.y = (3 * Math.PI/2);
+
 											 scene.add( object );
 											// arWorldRoot.add( object );
 									 }, onProgress, onError );
@@ -256,6 +257,7 @@
 			function animate() {
 
 				requestAnimationFrame( animate );
+
 				render();
 
 			}
