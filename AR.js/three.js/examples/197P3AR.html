@@ -286,18 +286,18 @@
                          object.rotation.y = (3 * Math.PI/2);
                          object.translate = (200, 850, 0);
 
-                         scene.add( object );
-                        // arWorldRoot.add( object );
+                        // scene.add( object );
+                         arWorldRoot.add( object );
                      }, onProgress, onError );
              } );
 
 
-         var manager = new THREE.LoadingManager();
-         manager.onProgress = function ( item, loaded, total ) {
-
-             console.log( item, loaded, total );
-
-         };
+         // var manager = new THREE.LoadingManager();
+         // manager.onProgress = function ( item, loaded, total ) {
+         //
+         //     console.log( item, loaded, total );
+         //
+         // };
 
 
         // var gsc = function () {
