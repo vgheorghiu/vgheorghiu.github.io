@@ -43,6 +43,7 @@
         var mixers = [];
         var stats;
         var stats2;
+        animate();
 
         //var meshes = [];
 	//////////////////////////////////////////////////////////////////////////////////
@@ -280,12 +281,12 @@
          };
          var onError = function () { };
          THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-         new THREE.MTLLoader()
+         new THREE.MTLLoader(manager)
         // new THREE.TGALoader()
              .setPath( '../../data/data/' )
              .load( 'objcomposite.mtl', function ( materials ) {
                  materials.preload();
-                 new THREE.OBJLoader()
+                 new THREE.OBJLoader(manager)
                      .setMaterials( materials )
                      .setPath( '../../data/data/' )
                      .load( 'objcomposite.obj', function ( object ) {
@@ -380,7 +381,7 @@
              })
          })
 
-        animate();
+
 
         function animate() {
 				requestAnimationFrame( animate );
