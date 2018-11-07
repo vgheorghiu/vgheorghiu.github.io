@@ -1,0 +1,8 @@
+/////// some Data just for fun /////// /////// temporary fish spine tool script saved /////// 
+/////// file saved at  C:\Users\ghvla\Desktop\GitHub\vgheorghiu.github.io\AR.js\data\data\Ruddfish\RuddFish.blend
+//User name is ghvla
+//last edited script on 7_11_2018
+//your text script is at this location >> C:\Users\ghvla\Desktop\GitHub\vgheorghiu.github.io\AR.js\data\data\Ruddfish\RuddFish.blend\Fish spine rig.py
+//proccessor is of type AMD64
+//proccessor is a Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+//AMD is ok but Currently NVidia with CUDA renders faster.
