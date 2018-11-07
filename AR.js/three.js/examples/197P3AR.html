@@ -26,6 +26,8 @@
 
     <script src="js/libs/inflate.min.js"></script>
     <script src="js/loaders/FBXLoader.js"></script>
+    <script src="js/loaders/MTLLoader.js"></script>
+    <script src="js/loaders/DDSLoader.js"></script>
 
     <script src="js/controls/OrbitControls.js"></script>
     <script src="js/loaders/OBJLoader.js"></script>
@@ -147,7 +149,7 @@
             ////////////////////////////////////////////////////////////////////////////////
             //   Add your custom image here and comment out existing file (hiro or kanji)
             ////////////////////////////////////////////////////////////////////////////////
-            patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
+            patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/pattern_marker.patt'
             // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
         })
         // build smoothedControls
@@ -261,6 +263,35 @@
         ///////////////////////////////////////////////////////////
          //add obj model (static)
          // obj texture
+
+         var onProgress = function ( xhr ) {
+             if ( xhr.lengthComputable ) {
+                 var percentComplete = xhr.loaded / xhr.total * 100;
+                 console.log( Math.round( percentComplete, 2 ) + '% downloaded' );
+             }
+         };
+         var onError = function () { };
+         THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+         new THREE.MTLLoader()
+        // new THREE.TGALoader()
+             .setPath( '../../data/data/' )
+             .load( 'objcomposite.mtl', function ( materials ) {
+                 materials.preload();
+                 new THREE.OBJLoader()
+                     .setMaterials( materials )
+                     .setPath( '../../data/data/' )
+                     .load( 'objcomposite.obj', function ( object ) {
+
+                         object.scale.set(10, 10, 10);
+                         object.rotation.y = (3 * Math.PI/2);
+                         object.translate = (200, 850, 0);
+
+                         scene.add( object );
+                        // arWorldRoot.add( object );
+                     }, onProgress, onError );
+             } );
+
+
          var manager = new THREE.LoadingManager();
          manager.onProgress = function ( item, loaded, total ) {
 
@@ -270,82 +301,45 @@
 
 
         // var gsc = function () {
-         var textureLoader = new THREE.MaterialLoader( manager );
-         var texture = textureLoader.load( '../../data/data/gsoftcoral/gsoftcoral.mtl' );
-
-
-        // obj model
-         var onProgress = function ( xhr ) {
-             if ( xhr.lengthComputable ) {
-                 var percentComplete = xhr.loaded / xhr.total * 100;
-                 console.log( Math.round(percentComplete, 2) + '% downloaded' );
-             }
-         };
-
-         var onError = function ( xhr ) {
-         };
-
-         var loader = new THREE.OBJLoader( manager );
-         loader.load( '../../data/data/gsoftcoral/gsoftcoral.obj', function ( object ) {
-
-             object.traverse( function ( child ) {
-
-                 if ( child instanceof THREE.Mesh ) {
-
-                     child.material.map = texture;
-                  //   child.position.y =  50;
-                    // object.position.x =  1;
-                 }
-
-             } );
- 				// 	scene.add( object );
-             object.scale.set(.02, .02, .02);
-             object.rotation.x = Math.PI;
-             //object.position.y = - 95;
-             arWorldRoot.add( object );
-
-         }, onProgress, onError );
-    //   };
-
-
-      //  var coralv = function () {
+    //      var textureLoader = new THREE.MaterialLoader( manager );
+    //      var texture = textureLoader.load( '../../data/data/gsoftcoral/gsoftcoral.mtl' );
+    //
+    //
+    //     // obj model
+    //      var onProgress = function ( xhr ) {
+    //          if ( xhr.lengthComputable ) {
+    //              var percentComplete = xhr.loaded / xhr.total * 100;
+    //              console.log( Math.round(percentComplete, 2) + '% downloaded' );
+    //          }
+    //      };
+    //
+    //      var onError = function ( xhr ) {
+    //      };
+    //
+    //      var loader = new THREE.OBJLoader( manager );
+    //      loader.load( '../../data/data/gsoftcoral/gsoftcoral.obj', function ( object ) {
+    //
+    //          object.traverse( function ( child ) {
+    //
+    //              if ( child instanceof THREE.Mesh ) {
+    //
+    //                  child.material.map = texture;
+    //               //   child.position.y =  50;
+    //                 // object.position.x =  1;
+    //              }
+    //
+    //          } );
+ 		// 		// 	scene.add( object );
+    //          object.scale.set(.02, .02, .02);
+    //          object.rotation.x = Math.PI;
+    //          //object.position.y = - 95;
+    //          arWorldRoot.add( object );
+    //
+    //      }, onProgress, onError );
+    // //   };
 
 
 
-            var textureLoader = new THREE.TextureLoader( manager );
-        var texture = textureLoader.load( '../../data/data/coralv1/coralv1.jpg' );
-
-        var onProgress = function ( xhr ) {
-            if ( xhr.lengthComputable ) {
-                var percentComplete = xhr.loaded / xhr.total * 100;
-                console.log( Math.round(percentComplete, 2) + '% downloaded' );
-            }
-        };
-
-        var onError = function ( xhr ) {
-        };
-
-         var loader = new THREE.OBJLoader( manager );
-         loader.load( '../../data/data/coralv1/coralv1.obj', function ( object ) {
-
-             object.traverse( function ( child ) {
-
-                 if ( child instanceof THREE.Mesh ) {
-
-                     child.material.map = texture;
-                  //   child.position.y =  10;
-                    //  object.position.x =  4;
-                 }
-
-             } );
-
-
-        //  // 	scene.add( object );
-             object.scale.set(.02, .02, .02);
-             object.rotation.x = Math.PI;
-            arWorldRoot.add( object );
-
-         }, onProgress, onError );
     // };
          //end obj code
         ///////////////////////////////////////////////////////////
