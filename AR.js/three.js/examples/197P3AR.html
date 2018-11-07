@@ -104,11 +104,11 @@
             // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
         })
         arToolkitSource.init(function onReady(){
-            onResize()
+            onResizeElement()
         })
         // handle resize
         window.addEventListener('resize', function(){
-            onResize()
+            onResizeElement()
         })
         function onResizeElement(){
             arToolkitSource.onResizeElement()
