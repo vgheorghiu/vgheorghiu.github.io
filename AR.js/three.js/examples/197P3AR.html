@@ -389,6 +389,7 @@
 					for ( var i = 0; i < mixers.length; i ++ ) {
 						mixers[ i ].update( clock.getDelta() );
 					}
+        render();
 				}
 				renderer.render( scene, camera );
 				stats.update();
