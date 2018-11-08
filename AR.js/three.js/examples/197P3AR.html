@@ -286,7 +286,7 @@
                                  .setMaterials( materials )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
-                                     object.rotate.y = Math.PI/2;
+                                     object.rotate.y = (Math.PI/2);
                                      //object.scale.set(.4, .4, .4);
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
@@ -307,7 +307,7 @@
                            .setMaterials( materials )
                            .setPath( '../../data/data/' )
                            .load( 'objcomposite.obj', function ( object ) {
-                               object.rotate.y = Math.PI/2;
+                               object.rotate.y = (Math.PI/2);
                                //object.scale.set(.4, .4, .4);
                                arWorldRoot.add( object );
                            }, onProgress, onError );
