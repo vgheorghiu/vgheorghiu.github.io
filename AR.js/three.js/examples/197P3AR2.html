@@ -222,7 +222,7 @@
                                  .load( '3dARtext2.obj', function ( object ) {
                                    object.rotation.x = (3*Math.PI/2);
                                    //object.rotation.y = (Math.PI/2);
-                                     //object.scale.set(.4, .4, .4);
+                                   object.scale.set(.4, .4, .4);
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
                          } );
@@ -242,6 +242,7 @@
                            .setMaterials( materials )
                            .setPath( '../../data/data/' )
                            .load( 'objcomposite.obj', function ( object ) {
+                            
                             object.rotation.x = (3*Math.PI/2);
                             object.rotation.y = (3*Math.PI/2);
                             object.translate = (0, 90, 0);
