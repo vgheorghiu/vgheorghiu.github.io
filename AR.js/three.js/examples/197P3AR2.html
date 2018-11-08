@@ -204,7 +204,7 @@
 
          };
 
-
+         this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
            var onProgress = function ( xhr ) {
                          if ( xhr.lengthComputable ) {
                              var percentComplete = xhr.loaded / xhr.total * 100;
@@ -213,8 +213,6 @@
                      };
                      var onError = function () { };
                     var mode1Name = '3dARtext2';
-                     this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
-                     
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      var text = new THREE.MTLLoader()
                          .setPath( '../../data/data/' )
