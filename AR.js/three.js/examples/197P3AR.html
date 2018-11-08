@@ -223,6 +223,9 @@
                                  .setMaterials( materials )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
+                                   object.scale.set(.4, .4, .4);
+                                   object.rotation.x = (3*Math.PI/2);
+
                                     // object.rotation.y = (Math.PI/2);
                                      //object.scale.set(.4, .4, .4);
                                      arWorldRoot.add( object );
