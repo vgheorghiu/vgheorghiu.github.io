@@ -220,10 +220,14 @@
                                  .setMaterials( materials )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
-                                   object.translateY = (-90);
-                                   object.rotation.x = (3*Math.PI/2);
-                                   //object.rotation.y = (Math.PI/2);
                                    object.scale.set(.4, .4, .4);
+                                   object.rotation.x = (3*Math.PI/2);
+                                   var local = new THREE.Object3D();
+								                   local.name = '3dARtext2';
+                                   local.translateY = (-90);
+
+                                   //object.rotation.y = (Math.PI/2);
+
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
                          } );
