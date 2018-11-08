@@ -204,6 +204,7 @@
 
          };
 
+         this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
            var onProgress = function ( xhr ) {
                          if ( xhr.lengthComputable ) {
                              var percentComplete = xhr.loaded / xhr.total * 100;
@@ -211,20 +212,26 @@
                          }
                      };
                      var onError = function () { };
+                    var mode1Name = '3dARtext2';
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      var text = new THREE.MTLLoader()
                          .setPath( '../../data/data/' )
                          .load( '3dARtext2.mtl', function ( materials ) {
+
                              materials.preload();
+
                              var text2 = new THREE.OBJLoader()
                                  .setMaterials( materials )
+                                 .setMode1Name( mode1Name )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
+                                   var local = new THREE.Object3D();
                                    object.scale.set(.4, .4, .4);
                                    object.rotation.x = (3*Math.PI/2);
-                                   var local = new THREE.Object3D();
-								                   local.name = '3dARtext2.obj';
+
+								                   local.name = '3dARtext2';
                                    local.translate = (0, -90, 0);
+                                   local.add( text2.parse( object ) );
 
                                    //object.rotation.y = (Math.PI/2);
 
