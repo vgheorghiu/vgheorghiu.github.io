@@ -242,7 +242,8 @@
                            .setPath( '../../data/data/' )
                            .load( 'objcomposite.obj', function ( object ) {
                             object.rotation.x = (3*Math.PI/2);
-                               object.scale.set(.1, .1, .1);
+                            object.rotation.y = (3*Math.PI/2);
+                               object.scale.set(.2, .2, .2);
                                arWorldRoot.add( object );
                            }, onProgress, onError );
                    } );
