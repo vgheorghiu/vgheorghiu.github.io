@@ -214,6 +214,8 @@
                          }
                      };
                      var onError = function () { };
+                     var mode1Name = '3dARtext2';
+                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      var text = new THREE.MTLLoader()
                          .setPath( '../../data/data/' )
@@ -221,11 +223,16 @@
                              materials.preload();
                              var text2 = new THREE.OBJLoader()
                                  .setMaterials( materials )
+                                 .setMode1Name( mode1Name )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
+                                   var local = new THREE.Object3D();
                                    object.scale.set(.4, .4, .4);
                                    object.rotation.x = (3*Math.PI/2);
 
+                                   local.name = '3dARtext2';
+                                   local.translate = (0, -20, 0);
+                                   local.add( text2.parse( object ) );
                                     // object.rotation.y = (Math.PI/2);
                                      //object.scale.set(.4, .4, .4);
                                      arWorldRoot.add( object );
@@ -269,12 +276,12 @@
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
 
-        var stats2 = new Stats();
-        document.body.appendChild( stats2.dom );
-        // render the scene
-        onRenderFcts.push(function(){
-            renderer.render( scene, camera );
-            stats2.update();
+        // var stats2 = new Stats();
+        // document.body.appendChild( stats2.dom );
+        // // render the scene
+        // onRenderFcts.push(function(){
+        //     renderer.render( scene, camera );
+        //     stats2.update();
 
 
         })
