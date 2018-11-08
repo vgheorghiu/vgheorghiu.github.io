@@ -241,8 +241,8 @@
                            .setMaterials( materials )
                            .setPath( '../../data/data/' )
                            .load( 'objcomposite.obj', function ( object ) {
-                            object.rotation.x = (Math.PI/4);
-                               object.scale.set(.3, .3, .3);
+                            object.rotation.x = (3*Math.PI/2);
+                               object.scale.set(.1, .1, .1);
                                arWorldRoot.add( object );
                            }, onProgress, onError );
                    } );
