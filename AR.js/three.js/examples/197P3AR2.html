@@ -220,7 +220,7 @@
                                  .setMaterials( materials )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
-                                   object.position.set(0, -10, 0);
+                                   object.position.set(10, -10, 0);
                                    object.rotation.x = (3*Math.PI/2);
                                    //object.rotation.y = (Math.PI/2);
                                    object.scale.set(.4, .4, .4);
@@ -243,7 +243,7 @@
                            .setMaterials( materials )
                            .setPath( '../../data/data/' )
                            .load( 'objcomposite.obj', function ( object ) {
-
+                            object.position.set(-10, 0, 0);
                             object.rotation.x = (3*Math.PI/2);
                             object.rotation.y = (3*Math.PI/2);
                             object.translate = (0, 90, 0);
