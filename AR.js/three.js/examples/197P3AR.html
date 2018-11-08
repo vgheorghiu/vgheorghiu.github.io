@@ -42,8 +42,6 @@
         var clock = new THREE.Clock();
         var mixers = [];
         var stats;
-        var stats2;
-
 
         //var meshes = [];
 	//////////////////////////////////////////////////////////////////////////////////
@@ -105,17 +103,17 @@
             // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
         })
         arToolkitSource.init(function onReady(){
-            onResizeElement()
+            onResize()
         })
         // handle resize
         window.addEventListener('resize', function(){
-            onResizeElement()
+            onResize()
         })
-        function onResizeElement(){
-            arToolkitSource.onResizeElement()
-            arToolkitSource.copyElementSizeTo(renderer.domElement)
+        function onResize(){
+            arToolkitSource.onResize()
+            arToolkitSource.copySizeTo(renderer.domElement)
             if( arToolkitContext.arController !== null ){
-                arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)
+                arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
             }
         }
         ////////////////////////////////////////////////////////////////////////////////
@@ -272,78 +270,27 @@
 
          };
 
-
          var onProgress = function ( xhr ) {
-             if ( xhr.lengthComputable ) {
-                 var percentComplete = xhr.loaded / xhr.total * 100;
-                 console.log( Math.round( percentComplete, 2 ) + '% downloaded' );
-             }
-         };
-         var onError = function () { };
-         THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-         new THREE.MTLLoader()
-        // new THREE.TGALoader()
-             .setPath( '../../data/data/' )
-             .load( 'objcomposite.mtl', function ( materials ) {
-                 materials.preload();
-                 new THREE.OBJLoader()
-                     .setMaterials( materials )
-                     .setPath( '../../data/data/' )
-                     .load( 'objcomposite.obj', function ( object ) {
+                   if ( xhr.lengthComputable ) {
+                       var percentComplete = xhr.loaded / xhr.total * 100;
+                       console.log( Math.round( percentComplete, 2 ) + '% downloaded' );
+                   }
+               };
+               var onError = function () { };
+               THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+               new THREE.MTLLoader()
+                   .setPath( '../../data/data/' )
+                   .load( 'objcomposite.mtl', function ( materials ) {
+                       materials.preload();
+                       new THREE.OBJLoader()
+                           .setMaterials( materials )
+                           .setPath( '../../data/data/' )
+                           .load( 'objcomposite.obj', function ( object ) {
+                               //object.scale.set(.4, .4, .4);
+                               arWorldRoot.add( object );
+                           }, onProgress, onError );
+                   } );
 
-                         object.scale.set(10, 10, 10);
-                         object.rotation.y = (3 * Math.PI/2);
-                         object.translate = (200, 850, 0);
-
-                        // scene.add( object );
-                         arWorldRoot.add( object );
-                     }, onProgress, onError );
-             } );
-
-
-
-
-        // var gsc = function () {
-    //      var textureLoader = new THREE.MaterialLoader( manager );
-    //      var texture = textureLoader.load( '../../data/data/gsoftcoral/gsoftcoral.mtl' );
-    //
-    //
-    //     // obj model
-    //      var onProgress = function ( xhr ) {
-    //          if ( xhr.lengthComputable ) {
-    //              var percentComplete = xhr.loaded / xhr.total * 100;
-    //              console.log( Math.round(percentComplete, 2) + '% downloaded' );
-    //          }
-    //      };
-    //
-    //      var onError = function ( xhr ) {
-    //      };
-    //
-    //      var loader = new THREE.OBJLoader( manager );
-    //      loader.load( '../../data/data/gsoftcoral/gsoftcoral.obj', function ( object ) {
-    //
-    //          object.traverse( function ( child ) {
-    //
-    //              if ( child instanceof THREE.Mesh ) {
-    //
-    //                  child.material.map = texture;
-    //               //   child.position.y =  50;
-    //                 // object.position.x =  1;
-    //              }
-    //
-    //          } );
- 		// 		// 	scene.add( object );
-    //          object.scale.set(.02, .02, .02);
-    //          object.rotation.x = Math.PI;
-    //          //object.position.y = - 95;
-    //          arWorldRoot.add( object );
-    //
-    //      }, onProgress, onError );
-    // //   };
-
-
-
-    // };
          //end obj code
         ///////////////////////////////////////////////////////////
 
@@ -381,9 +328,7 @@
              })
          })
 
-
-  animate();
-  //render();
+    animate();
 
         function animate() {
 				requestAnimationFrame( animate );
@@ -391,13 +336,9 @@
 					for ( var i = 0; i < mixers.length; i ++ ) {
 						mixers[ i ].update( clock.getDelta() );
 					}
-
 				}
 				renderer.render( scene, camera );
 				stats.update();
-
 			}
-
-
 
 </script></body>
