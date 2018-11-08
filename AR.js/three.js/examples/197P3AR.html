@@ -226,13 +226,19 @@
                                  .setMode1Name( mode1Name )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
-                                   var local = new THREE.Object3D();
                                    object.scale.set(.4, .4, .4);
                                    object.rotation.x = (3*Math.PI/2);
+                                   function ( content ) {
+								                             var local = new THREE.Object3D();
+								                                 local.name = '3dARtext2';
+                                            
+                                                 local.translate = (0, -20, 0);
+                                                 local.add( text2.parse( object ) );
 
-                                   local.name = '3dARtext2';
-                                   local.translate = (0, -20, 0);
-                                   local.add( text2.parse( object ) );
+
+								                                 scope._reportProgress( { detail: { text: 'Loading complete: ' + modelName } } );
+							}
+
                                     // object.rotation.y = (Math.PI/2);
                                      //object.scale.set(.4, .4, .4);
                                      arWorldRoot.add( object );
