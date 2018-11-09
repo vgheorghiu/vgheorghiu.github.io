@@ -214,7 +214,7 @@
                          }
                      };
                      var onError = function () { };
-                     var mode1Name = '3dARtext2';
+                     var modelName = '3dARtext2';
                       THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      var text = new THREE.MTLLoader()
@@ -223,7 +223,7 @@
                              materials.preload();
                              var text2 = new THREE.OBJLoader()
                                  .setMaterials( materials )
-                                 .setMode1Name( mode1Name )
+                                 .setModelName( modelName )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
 
