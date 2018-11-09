@@ -215,7 +215,7 @@
                      };
                      var onError = function () { };
                      var modelName = '3dARtext2';
-                     this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
+                     //this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      var text = new THREE.MTLLoader()
                          .setPath( '../../data/data/' )
