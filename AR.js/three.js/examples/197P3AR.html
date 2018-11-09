@@ -215,7 +215,7 @@
                      };
                      var onError = function () { };
                      var modelName = '3dARtext2';
-                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+                     this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
                      var text = new THREE.MTLLoader()
                          .setPath( '../../data/data/' )
@@ -242,6 +242,8 @@
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
                          } );
+
+
          var onProgress = function ( xhr ) {
                    if ( xhr.lengthComputable ) {
                        var percentComplete = xhr.loaded / xhr.total * 100;
@@ -260,7 +262,7 @@
                            .load( 'objcomposite2.obj', function ( object ) {
                              object.rotation.x = (3*Math.PI/2);
                              object.rotation.y = (3*Math.PI/2);
-                             object.translateY = (100);
+                             object.translate.set(0, 100, 0);
                                 object.scale.set(.2, .2, .2);
                               // object.rotation.y = (Math.PI/2);
                                //object.scale.set(.4, .4, .4);
