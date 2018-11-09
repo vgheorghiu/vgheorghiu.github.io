@@ -170,7 +170,7 @@
         //      for more on using 3D models with AR.js and A-Frame see here: https://medium.com/@akashkuttappa/using-3d-models-with-ar-js-and-a-frame-84d462efe498
         //////////////////////////////////////////////////////////////////////////////////
         var arWorldRoot = smoothedRoot;
-        var geometry, material, mesh;
+        var geometry, material, mesh, content;
 
 
        ///////////////////////////////////////////////////////////
@@ -226,8 +226,7 @@
                                  .setMode1Name( mode1Name )
                                  .setPath( '../../data/data/' )
                                  .load( '3dARtext2.obj', function ( object ) {
-                                   object.scale.set(.4, .4, .4);
-                                   object.rotation.x = (3*Math.PI/2);
+
                                    function ( content ) {
 								                             var local = new THREE.Object3D();
 								                                 local.name = '3dARtext2';
@@ -237,9 +236,9 @@
 
 
 								                                 scope._reportProgress( { detail: { text: 'Loading complete: ' + modelName } } );
-				
-                                    // object.rotation.y = (Math.PI/2);
-                                     //object.scale.set(.4, .4, .4);
+		                           };
+                                     object.scale.set(.4, .4, .4);
+                                     object.rotation.x = (3*Math.PI/2);
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
                          } );
