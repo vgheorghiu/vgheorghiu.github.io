@@ -204,7 +204,7 @@
              console.log( item, loaded, total );
 
          };
-        var textFunction = function() {
+      //  var textFunction = function() {
            var onProgress = function ( xhr ) {
                          if ( xhr.lengthComputable ) {
                              var percentComplete = xhr.loaded / xhr.total * 100;
@@ -251,7 +251,7 @@
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
                          //} );
-                       };
+                    //   };
          var onProgress = function ( xhr ) {
                    if ( xhr.lengthComputable ) {
                        var percentComplete = xhr.loaded / xhr.total * 100;
