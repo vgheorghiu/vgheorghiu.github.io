@@ -221,6 +221,7 @@
                      //         materials.preload();
                      var modelName = '3dARtext2';
                     var text2 = new THREE.OBJLoader(manager);
+                      text2.loadModelName( modelName );
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 
                      var text = new THREE.MTLLoader( manager );
@@ -228,7 +229,7 @@
                        text.load( '3dARtext.mtl' , function ( materials ) {
                                  //materials.preload();
                                  text2.setMaterials( materials );
-                                 text2.loadModelName( modelName );
+
                              //var text2 = new THREE.OBJLoader()
                                 // .setMaterials( materials )
                                  //.setModelName( modelName )
