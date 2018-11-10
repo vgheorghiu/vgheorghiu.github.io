@@ -204,8 +204,7 @@
              console.log( item, loaded, total );
 
          };
-
-         this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
+        var textFunction = function() {
            var onProgress = function ( xhr ) {
                          if ( xhr.lengthComputable ) {
                              var percentComplete = xhr.loaded / xhr.total * 100;
@@ -213,32 +212,45 @@
                          }
                      };
                      var onError = function () { };
-                    var mode1Name = '3dARtext2';
+
+                     //this._reportProgress( { detail: { text: 'Loading: ' + modelName } } );
+
+                     // var text = new THREE.MTLLoader()
+                     //     .setPath( '../../data/data/' )
+                     //     .load( '3dARtext2.mtl', function ( materials ) {
+                     //         materials.preload();
+                     var modelName = '3dARtext2';
+                    var text2 = new THREE.OBJLoader(manager);
                      THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
-                     var text = new THREE.MTLLoader()
-                         .setPath( '../../data/data/' )
-                         .load( '3dARtext2.mtl', function ( materials ) {
 
-                             materials.preload();
+                     var text = new THREE.MTLLoader( manager );
+                       text.setPath( '../../data/data/')
+                       text.load( '3dARtext.mtl' , function ( materials ) {
+                                 //materials.preload();
+                                 text2.setMaterials( materials );
+                                 text2.loadModelName( modelName );
+                             //var text2 = new THREE.OBJLoader()
+                                // .setMaterials( materials )
+                                 //.setModelName( modelName )
+                                 text2.setPath( '../../data/data/' )
+                                 text2.load( '3dARtext2.obj', function ( object ) {
 
-                             var text2 = new THREE.OBJLoader()
-                                 .setMaterials( materials )
-                                 .setMode1Name( mode1Name )
-                                 .setPath( '../../data/data/' )
-                                 .load( '3dARtext2.obj', function ( object ) {
-                                   var local = new THREE.Object3D();
-                                   object.scale.set(.4, .4, .4);
-                                   object.rotation.x = (3*Math.PI/2);
 
-								                   local.name = '3dARtext2';
-                                   local.translate = (0, -20, 0);
-                                   local.add( text2.parse( object ) );
+                                     var local = new THREE.Object3D();
+                                     local.name = '3dARtext2';
 
-                                   //object.rotation.y = (Math.PI/2);
+                                      local.translate = (0, -20, 0);
+                                      local.add( text2.parse( object ) );
+                                    } );
 
+                                                // scope._reportProgress( { detail: { text: 'Loading complete: ' + modelName } } );
+
+                                     object.scale.set(.4, .4, .4);
+                                     object.rotation.x = (3*Math.PI/2);
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
-                         } );
+                         //} );
+                       };
          var onProgress = function ( xhr ) {
                    if ( xhr.lengthComputable ) {
                        var percentComplete = xhr.loaded / xhr.total * 100;
