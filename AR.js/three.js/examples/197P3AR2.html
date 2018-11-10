@@ -288,15 +288,15 @@
 	//		render the whole thing on the page
 	//////////////////////////////////////////////////////////////////////////////////
 
-        // var stats2 = new Stats();
-        // document.body.appendChild( stats2.dom );
-        // // render the scene
-        // onRenderFcts.push(function(){
-        //     renderer.render( scene, camera );
-        //     stats2.update();
-        //
-        //
-        // })
+        var stats2 = new Stats();
+        document.body.appendChild( stats2.dom );
+        // render the scene
+        onRenderFcts.push(function(){
+            renderer.render( scene, camera );
+            stats2.update();
+
+
+        })
 
         // run the rendering loop
          var lastTimeMsec= null
@@ -323,7 +323,7 @@
 					}
 				}
 				renderer.render( scene, camera );
-				stats.update();
+				//stats.update();
 			}
-
+      function(textFunction);
 </script></body>
