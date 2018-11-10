@@ -247,6 +247,7 @@
 
                                      object.scale.set(.4, .4, .4);
                                      object.rotation.x = (3*Math.PI/2);
+                                     scene.add(object);
                                      arWorldRoot.add( object );
                                  }, onProgress, onError );
                          //} );
@@ -324,7 +325,7 @@
 				}
 				renderer.render( scene, camera );
 				//stats.update();
-        renderer.render( textFunction );
+
 			}
 
 </script></body>
