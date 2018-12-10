@@ -32,10 +32,10 @@
     <script src="js/Detector.js"></script>
     <!--ALREADY IMPORTED-- <script src="js/libs/stats.min.js"></script> -->
 
-    <!--video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+    <video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline style="display:none">
 
     			<source src="../data/data/TSODDF1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-    		</video-->
+    		</video>
 
     <script>
 
@@ -173,19 +173,20 @@
         //////////////////////////////////////////////////////////////////////////////////
         var arWorldRoot = smoothedRoot;
         var geometry, material, mesh;
-
+        var video;
 
         ///////////////////////////////////////////////////////////
         innit();
         ///////////////////////////////////////////////////////////
         function innit () {
-        var video = document.createElement( 'video' );
+      //  var video = document.createElement( 'video' );
         				video.crossOrigin = 'anonymous';
         				video.width = 640;
         				video.height = 360;
         				video.loop = true;
         				video.muted = true;
-        				video.src = '../data/data.TSODDF1.mp4';
+                video = document.getElementById( 'video' );
+        			//	video.src = '../data/data.TSODDF1.mp4';
         				video.setAttribute( 'webkit-playsinline', 'webkit-playsinline' );
         				video.play();
 
