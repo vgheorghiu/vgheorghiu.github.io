@@ -63,7 +63,7 @@ function init()
 	scene = new THREE.Scene();
 	// CAMERA
 	var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
-	var VIEW_ANGLE = 0, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
+	var VIEW_ANGLE = -25, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
 	scene.add(camera);
 	camera.position.set(0,50,400);
@@ -120,7 +120,7 @@ function init()
 	video.src = "../../data/data/TSODDF1.mp4";
 	video.load(); // must call after setting/changing source
 	video.play();
-
+	scene.add(video);
 	// alternative method --
 	// create DIV in HTML:
 	// <video id="myVideo" autoplay style="display:none">
@@ -145,7 +145,7 @@ function init()
 	var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
 	// the geometry on which the movie will be displayed;
 	// 		movie image will be scaled to fit these dimensions.
-	var movieGeometry = new THREE.PlaneGeometry( 1920, 1280, 1, 1 );
+	var movieGeometry = new THREE.PlaneGeometry( 1920, 1280, 10, 10 );
 	var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
 	movieScreen.position.set(0,50,0);
 	scene.add(movieScreen);
@@ -186,12 +186,12 @@ function animate()
 
 function render()
 {
-	if ( video.readyState === video.HAVE_ENOUGH_DATA )
-	{
-		videoImageContext.drawImage( video, 0, 0 );
-		if ( videoTexture )
-			videoTexture.needsUpdate = true;
-	}
+	// if ( video.readyState === video.HAVE_ENOUGH_DATA )
+	// {
+	// 	videoImageContext.drawImage( video, 0, 0 );
+	// 	if ( videoTexture )
+	// 		videoTexture.needsUpdate = true;
+	// }
 
 	renderer.render( scene, camera );
 }
