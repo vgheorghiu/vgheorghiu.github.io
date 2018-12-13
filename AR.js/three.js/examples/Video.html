@@ -92,7 +92,7 @@ function init()
 	light.position.set(0,250,0);
 	scene.add(light);
 	// FLOOR
-	var floorTexture = new THREE.ImageUtils.loadTexture( '../data/images/checkerboard.jpg' );
+	var floorTexture = new THREE.ImageUtils.loadTexture( '../../data/images/checkerboard.jpg' );
 	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
 	floorTexture.repeat.set( 10, 10 );
 	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
@@ -117,7 +117,7 @@ function init()
 	video = document.createElement( 'video' );
 	// video.id = 'video';
 	// video.type = ' video/ogg; codecs="theora, vorbis" ';
-	video.src = "../data/data/TSODDF1.mp4";
+	video.src = "../../data/data/TSODDF1.mp4";
 	video.load(); // must call after setting/changing source
 	video.play();
 
