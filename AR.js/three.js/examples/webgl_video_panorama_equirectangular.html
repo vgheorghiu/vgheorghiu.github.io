@@ -72,8 +72,7 @@
 				video.setAttribute( 'webkit-playsinline', 'webkit-playsinline' );
 				video.play();
 
-				var texture = new THREE.VideoTexture( video );
-				var material = new THREE.MeshBasicMaterial( { map: texture } );
+
 
 				mesh = new THREE.Mesh( geometry, material );
 
@@ -94,29 +93,11 @@
 
 			}
 
-			function onWindowResize() {
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-			}
 
 
 
-			function onDocumentMouseMove( event ) {
 
-				if ( isUserInteracting === true ) {
 
-					lon = ( onPointerDownPointerX - event.clientX ) * 0.1 + onPointerDownLon;
-					lat = ( event.clientY - onPointerDownPointerY ) * 0.1 + onPointerDownLat;
-
-				}
-
-			}
-
-	
 
 
 			function animate() {
@@ -127,14 +108,6 @@
 			}
 
 			function update() {
-
-				lat = Math.max( - 85, Math.min( 85, lat ) );
-				phi = THREE.Math.degToRad( 90 - lat );
-				theta = THREE.Math.degToRad( lon );
-
-				camera.position.x = distance * Math.sin( phi ) * Math.cos( theta );
-				camera.position.y = distance * Math.cos( phi );
-				camera.position.z = distance * Math.sin( phi ) * Math.sin( theta );
 
 				camera.lookAt( camera.target );
 
