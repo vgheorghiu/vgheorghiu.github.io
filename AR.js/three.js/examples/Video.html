@@ -163,26 +163,26 @@ function animate()
 	//update();
 }
 
-// function update()
-// {
-// 	if ( keyboard.pressed("p") )
-// 		video.play();
-//
-// 	if ( keyboard.pressed("space") )
-// 		video.pause();
-//
-// 	if ( keyboard.pressed("s") ) // stop video
-// 	{
-// 		video.pause();
-// 		video.currentTime = 0;
-// 	}
-//
-// 	if ( keyboard.pressed("r") ) // rewind video
-// 		video.currentTime = 0;
-//
-// 	controls.update();
-// 	stats.update();
-// }
+function update()
+{
+	// if ( keyboard.pressed("p") )
+	// 	video.play();
+	//
+	// if ( keyboard.pressed("space") )
+	// 	video.pause();
+	//
+	// if ( keyboard.pressed("s") ) // stop video
+	// {
+	// 	video.pause();
+	// 	video.currentTime = 0;
+	// }
+	//
+	// if ( keyboard.pressed("r") ) // rewind video
+	// 	video.currentTime = 0;
+	video.play();
+	controls.update();
+	stats.update();
+}
 
 function render()
 {
