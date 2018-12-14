@@ -20308,7 +20308,7 @@
 
 		}
 
-		function setTextureParameters( textureType, texture ) {
+		function setTextureParameters( textureType, texture, isPowerOfTwoImage ) {
 
 			var extension;
 
@@ -20327,7 +20327,7 @@
 
 				if ( texture.wrapS !== ClampToEdgeWrapping || texture.wrapT !== ClampToEdgeWrapping ) {
 
-					console.warn( 'THREE.WebGLRenderer: Texture is not power of two. Texture.wrapS and Texture.wrapT should be set to THREE.ClampToEdgeWrapping.' );
+					//console.warn( 'THREE.WebGLRenderer: Texture is not power of two. Texture.wrapS and Texture.wrapT should be set to THREE.ClampToEdgeWrapping.' );
 
 				}
 
