@@ -154,12 +154,12 @@
 			function update() {
 
 				lat = Math.max( - 85, Math.min( 85, lat ) );
-				//phi = THREE.Math.degToRad( 90 - lat );
+				phi = THREE.Math.degToRad( 90 - lat );
 				theta = THREE.Math.degToRad( lon );
 
-				//camera.position.x = distance * Math.sin( phi ) * Math.cos( theta );
-				//camera.position.y = distance * Math.cos( phi );
-			//	camera.position.z = distance * Math.sin( phi ) * Math.sin( theta );
+				camera.position.x = distance * Math.sin( lat ) * Math.cos( theta );
+				camera.position.y = distance * Math.cos( lat );
+				camera.position.z = distance * Math.sin( lat ) * Math.sin( theta );
 
 				camera.lookAt( camera.target );
 
