@@ -20308,7 +20308,7 @@
 
 		}
 
-		function setTextureParameters( textureType, texture, isPowerOfTwoImage ) {
+		function setTextureParameters( textureType, texture ) {
 
 			var extension;
 
