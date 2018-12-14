@@ -53,7 +53,7 @@
 
 				container = document.getElementById( 'container' );
 
-				camera = new THREE.PerspectiveCamera( 300, window.innerWidth / window.innerHeight, 1, 1100 );
+				camera = new THREE.PerspectiveCamera( 150, window.innerWidth / window.innerHeight, 1, 1100 );
 				camera.target = new THREE.Vector3( 0, 0, 0 );
 
 				scene = new THREE.Scene();
@@ -154,12 +154,12 @@
 			function update() {
 
 				lat = Math.max( - 85, Math.min( 85, lat ) );
-				phi = THREE.Math.degToRad( 90 - lat );
+				//phi = THREE.Math.degToRad( 90 - lat );
 				theta = THREE.Math.degToRad( lon );
 
-				camera.position.x = distance * Math.sin( phi ) * Math.cos( theta );
-				camera.position.y = distance * Math.cos( phi );
-				camera.position.z = distance * Math.sin( phi ) * Math.sin( theta );
+				//camera.position.x = distance * Math.sin( phi ) * Math.cos( theta );
+				//camera.position.y = distance * Math.cos( phi );
+			//	camera.position.z = distance * Math.sin( phi ) * Math.sin( theta );
 
 				camera.lookAt( camera.target );
 
