@@ -38,7 +38,7 @@
 			var isUserInteracting = false,
 				lon = 0, lat = 0,
 				phi = 0, theta = 0,
-				distance = 50,
+				distance = 150,
 				onPointerDownPointerX = 0,
 				onPointerDownPointerY = 0,
 				onPointerDownLon = 0,
@@ -157,9 +157,9 @@
 				phi = THREE.Math.degToRad( 90 - lat );
 				theta = THREE.Math.degToRad( lon );
 
-				camera.position.x = distance * Math.sin( lat ) * Math.cos( theta );
-				camera.position.y = distance * Math.cos( lat );
-				camera.position.z = distance * Math.sin( lat ) * Math.sin( theta );
+				camera.position.x = distance * Math.sin( phi ) * Math.cos( theta );
+				camera.position.y = distance * Math.cos( phi );
+				camera.position.z = distance * Math.sin( phi ) * Math.sin( theta );
 
 				camera.lookAt( camera.target );
 
